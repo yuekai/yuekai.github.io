@@ -1,0 +1,717 @@
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to train individually fair ML models | Yuekai Sun</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="How to train individually fair ML models" />
+<meta name="author" content="Yuekai Sun" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="# How to train individually fair ML models" />
+<meta property="og:description" content="# How to train individually fair ML models" />
+<link rel="canonical" href="http://localhost:4000/talks/fair-training" />
+<meta property="og:url" content="http://localhost:4000/talks/fair-training" />
+<meta property="og:site_name" content="Yuekai Sun" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-30T01:30:57-07:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-04-30T01:30:57-07:00","dateModified":"2020-04-30T01:30:57-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/talks/fair-training"},"author":{"@type":"Person","name":"Yuekai Sun"},"description":"# How to train individually fair ML models","@type":"BlogPosting","url":"http://localhost:4000/talks/fair-training","headline":"How to train individually fair ML models","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/assets/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="/assets/reveal.js/css/reveal.css">
+		
+		<link rel="stylesheet" href="/assets/reveal.js/css/theme/white.css" id="theme">
+		
+		<link rel="stylesheet" href="/assets/reveal.js/css/YK.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/assets/reveal.js/lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/assets/reveal.js/css/print/pdf.css' : '/assets/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section data-markdown="">
+<textarea data-template="">
+# How to train individually fair ML models
+
+Yuekai Sun
+
+University of Michigan
+</textarea>
+</section>
+
+<!-- <section data-markdown>
+<textarea data-template>
+## Ex: sentiment analysis
+
+**Task:** classify words as positive or negative 
+
+**Training data:**   word vectors, sentiment lexicon
+
+- [pre-trained GloVe](https://nlp.stanford.edu/projects/glove/): trained on Common Crawl, 42B tokens, 1.9M vocab, 300d vectors
+- [sentiment lexicon](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon): 6.8k positive and negative sentiment words
+  
+**Model:** 2-layer fully-connected neural net (1k hidden units)
+</textarea>
+</section> -->
+
+<!-- <section data-background-image="/assets/img/sentiment_upd_3886.png" data-background-size="contain">
+</section> -->
+
+<section data-background-image="/assets/img/fair-training/machine-bias.png" data-background-size="contain">
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## Group fairness
+
+- **calibration**: equal false discovery and non-discovery rates 
+- **equalized odds**: equal false positive and negative rates 
+
+is amenable to statistical analysis,
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Group fairness
+
+but fails under scrutiny.
+
+- ML models that satisfy group fairness may be blatantly unfair for individual users [[Dwork et al](http://arxiv.org/abs/1104.3913)].
+- fundamental incompatibilities between common notions of group fairness [[Kleinberg et al](http://arxiv.org/abs/1609.05807), [Chouldechova](http://arxiv.org/abs/1703.00056)]
+<aside class="notes" data-markdown="">
+IF addresses the first but not the second issue.
+</aside>
+</textarea>
+</section>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Individual fairness
+**Main idea:** treat similar users similarly
+
+$d_y(h(x_1),h(x_2)) \le Ld_x(x_1,x_2)$ for all $x_1,x_2\in\cX$
+
+- ML model is a map $h:\cX\to\cY$
+- **fair metric** $d_x$ measures similarity between inputs
+- $d_y$ measures similarity between outputs
+
+**Main issue:** no widely accepted fair metric in many application areas
+</textarea>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Avoiding analysis paralysis 
+
+**Goal:** learn a Mahalanobis distance on a **known** feature space
+
+`$$d_x(x_i,x_j) \triangleq \langle\varphi(x_i) - \varphi(x_j),\Sigma(\varphi(x_i) - \varphi(x_j))\rangle^{\frac12},$$`
+
+- $\varphi:\cX\to\reals^d$ is a (known) feature map
+- $\Sigma\in\symm_+^{d\times d}$ is a covariance matrix
+
+from human curated groups of similar samples
+</textarea>
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## Ignoring the sensitive subspace
+
+We posit the features $\varphi_i \triangleq \varphi(x_i)$ satisfy a factor model:
+
+`$$\varphi_i = A_*u_i + B_*v_i + \text{error terms}.$$`
+
+- $A_*u_i$: variation in $\varphi_i$ due to sensitive attributes
+- $B_*v_i$: variation in $\varphi_i$ due to relevant attributes
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Ignoring the sensitive subspace
+
+**Human intuition:** $x_i$, $x_j$ are similar if the diffs between their features $\varphi_i$, $\varphi_j$ are mainly due to their sensitive attributes $u_i$, $v_j$:
+
+`$$
+\begin{aligned}
+\varphi_i - \varphi_j &amp;=  A_*(u_i - u_j) + B_*(v_i - v_j) + \text{error terms}\\
+&amp;\approx A_*(u_i - u_j) + \text{error terms}.
+\end{aligned}
+$$`
+
+A **well-aligned** fair metric agrees with human intuition;
+
+i.e. $d_x(x_i,x_j)$ is small whenever $x_i$, $x_j$ are similar
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Ignoring the sensitive subspace
+
+If $\ran(A)$ is known, then a well-aligned fair metric **ignores $\ran(A)$:**
+
+`$$
+\begin{aligned}
+d_x(x_i,x_j)^2 &amp;= \langle\varphi(x_i) - \varphi(x_j),(I_d - P_{\ran(A)})(\varphi(x_i) - \varphi(x_j))\rangle \\
+&amp;\approx \langle B_*(v_i - v_j),(I_d - P_{\ran(A)})B_*(v_i - v_j)\rangle.
+\end{aligned}
+$$`
+
+$\ran(A)$ is the **sensitive subspace**
+</textarea>
+</section>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Learning the sensitive subspace 
+
+**Data:** human curated groups of similar inputs $\cG_1,\dots,\cG_K\subset[n]$
+
+**Factor analysis:** `$\widehat{A} \in \argmin_{W_k,A}\frac12\sum_{k=1}^K\|C_k\Phi_k - W_kA^T\|_F^2$`
+
+- $\Phi_k \triangleq \texttt{vstack(}(\varphi_i^T)_{i\in\cG_k}\texttt{)}$
+- $C_k \triangleq I_{|\cG_k|} - \frac{1}{|\cG_k|}1_{|\cG_k|}1_{|\cG_k|}^T$: centering matrix
+
+use $\ran(\widehat{A})$ to estimate the sensitive subspace
+</textarea>
+</section>
+
+<section data-background-image="/assets/img/fair-training/semantic-bias.png" data-background-size="contain">
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Debiasing word vectors
+
+**Goal:** learn a metric on word vectors that ignores gender &amp; racial biases
+
+**Word vectors:** [pre-trained GloVe](https://nlp.stanford.edu/projects/glove/)
+
+- trained on [Common Crawl](https://commoncrawl.org/)
+- 42B tokens, 1.9M vocab
+- word vectors in $\reals^{300}$
+
+**Similar words:** [popular names baby in NYC](https://catalog.data.gov/dataset/most-popular-baby-names-by-sex-and-mothers-ethnic-group-new-york-city-8c742)
+</textarea>
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## Word Embedding Association
+
+developed by [Caliskan et al](https://science.sciencemag.org/content/356/6334/183) to measure biases in word vectors
+
+`$$\textstyle
+s(x,\cA,\cB) \triangleq \frac{1}{|\cA|}\sum_{a\in\cA}\frac{\langle x,a\rangle}{\|x\|\|a\|} - \frac{1}{|\cB|}\sum_{b\in\cB}\frac{\langle x,b\rangle}{\|x\|\|b\|}
+$$`
+
+- $\cA$, $\cB$: sets of attribute words 
+- $s(x,\cA,\cB)$ measures association of word $x$ with the attribute spanned by $\cA$, $\cB$
+- **Ex:** $\cA$ = {male, man}, $\cB$ = {female, woman}
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Word Embedding Association
+
+`$$\textstyle
+s(\cX,\cY,\cA,\cB) \triangleq |\frac{1}{|\cX|}\sum_{x\in\cX}s(x,\cA,\cB) - \frac{1}{|\cY|}\sum_{x\in\cY}s(y,\cA,\cB)|.
+$$`
+
+- $\cX$, $\cY$: sets of target words 
+- $s(\cX,\cY,\cA,\cB)$: diff between two sets of target words in terms of their association with the attribute
+- **Ex:** $\cX$ = {programmer, scientist, engineer}, $\cB$ = {nurse, teacher, librarian}
+</textarea>
+</section>
+</section>
+
+<section data-background-image="/assets/img/fair-training/WEAT.png" data-background-size="contain">
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## Auditing ML models
+
+**Main idea:** compare the output of ML models on similar users
+
+**Ex:** [Bertrand and Mullainathan](https://www.nber.org/papers/w9873)'s empirical study of racial discrimination in the US labor market:
+
+1. send 5k fictitious resumes to 1.3k job ads
+2. randomly assign African-American-sounding or White-sounding names to the resumes
+3. resumes with White-sounding names receive 50% more callbacks
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Auditing ML models
+
+To keep things simple, we focus on classification problems.
+
+- input space $\cX$ 
+- fair metric $d_x$
+- ML model under audit $h:\cX\to\cY$
+- loss function $\ell:\cY\times\cY\to\reals_+$
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Auditing ML models
+**Main idea:** find inputs on which the ML model performs poorly:
+
+`$$
+\begin{aligned} 
+&amp;\textstyle \max_{x_i'\in\cX} &amp; &amp;\textstyle \ell(h(x_i'),y_i) \\ &amp; \subjectto &amp; &amp; d_x(x_i,x_i') \le \epsilon.
+\end{aligned}
+$$`
+
+If $x_i$ and $x_i'$ are similar but $h$ performs much worse on $x_i'$ (than on $x_i$), then $h$ is not individually fair.
+</textarea>
+</section>
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## The auditor's problem
+
+The auditor looks for inputs on which the ML models poorly:
+
+`$$
+\begin{aligned} 
+&amp;\textstyle \max_P &amp; &amp;\textstyle \int_{\cZ}\ell(z,h)dP(z) \\ &amp; \subjectto &amp; &amp; W(P,P_n) \le \epsilon.
+\end{aligned}
+$$`
+
+- $P_n$ is the empirical distribution of the audit samples
+- $\epsilon$ is a moving budget that compels the auditor to avoid moving mass to dissimilar areas of the sample space
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## The auditor's problem
+
+The auditor looks for inputs on which the ML models poorly:
+
+`$$
+\begin{aligned} 
+&amp;\textstyle \max_P &amp; &amp;\textstyle \int_{\cZ}\ell(z,h)dP(z) \\ &amp; \subjectto &amp; &amp; W(P,P_n) \le \epsilon. 
+\end{aligned}
+$$`
+
+The optimal $P$ may move mass to areas of the sample space that are not represented in the audit data.
+
+The auditor's problem detects *aggregate* violations of individual fairness by the ML model.
+</textarea>
+</section>
+</section>
+
+<section data-background-image="/assets/img/fair-training/baseline_decision.svg" data-background-size="contain">
+</section>
+
+<section data-background-image="/assets/img/fair-training/baseline_map.svg" data-background-size="contain">
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## Dual of the auditor's problem
+
+`$$
+\begin{aligned}
+\max\nolimits_{P:W(P,P_n) \le \epsilon}\Ex_P\big[\ell(Z,h)\big] = \min\nolimits_{\lambda \ge 0}\{\lambda\epsilon + \Ex_{P_n}\big[\ell_\lambda^c(Z,h)\big]\}, \\
+\ell_\lambda^c((x_i,y_i),h) = \max\nolimits_{x\in\cX}\ell((x,y_i),\theta) - \lambda d_x(x,x_i).
+\end{aligned}
+$$`
+
+The auditor's problem is infinite-dim, but its dual is univariate.
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Dual of the auditor's problem
+
+The dual is a more powerful version of adversarial attacking:
+
+`$$
+\begin{aligned}
+&amp;\max\nolimits_{\delta_1,\dots,\delta_n} &amp; &amp;\textstyle \sum_{i=1}^n\ell((x_i + \delta_i,y_i),h) \\
+&amp; \subjectto           &amp; &amp; d_x(x_i + \delta_i,x_i) \le \epsilon.
+\end{aligned}
+$$`
+</textarea>
+</section>
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## Solving the auditor's problem
+
+**Inputs:** starting point `$\hat{\lambda}_1$`, step sizes `$(\alpha_t)\in\reals_+$`
+
+**Outputs:** dual optimal point $\hat{\lambda}$
+
+repeat 
+
+1. draw mini-batch $(x_{t_1},y_{t_1}),\dots,(x_{t_B},y_{t_B})\sim P_n$
+2. `$x_{t_b}^* \gets \argmax_{x\in\cX}\ell((x,y_{t_b}),h) - \hat{\lambda}_td_x(x_{t_b},x)$, $b\in[B]$`
+3. `$\hat{\lambda}_{t+1} \gets \max\{0,\hat{\lambda}_t - \alpha_t(\epsilon - \frac{1}{B}\sum_{b=1}^Bd_x(x_{t_b},x_{t_b}^*))\}$`
+
+until converged
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## Solving the auditor's problem
+
+The primal optimal point is $\frac1n\sum_{i=1}^n\delta_{(T_{\hat{\lambda}}(x_i),y_i)}$, where $T_\lambda$ is the map
+
+$$
+T_\lambda(x_i) \gets \argmax_{x\in\cX}\ell((x,y_i),h) - \lambda d_x(x,x_i).
+$$
+</textarea>
+</section>
+</section>
+
+<section data-background-image="/assets/img/fair-training/baseline_decision.svg" data-background-size="contain">
+</section>
+
+<section data-background-image="/assets/img/fair-training/fair_decision.svg" data-background-size="contain">
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## SENsitive Subspace Robustness 
+
+**Inputs:** starting point `$\hat{\theta}_1$`, step sizes `$\alpha_t,\beta_t\in\reals_+$`
+
+<!-- **Outputs:** (primal-dual) stationary point $(\hat{\theta}_T,\hat{\lambda}_T)$ -->
+
+repeat 
+
+1. sample mini-batch $(x_1,y_1),\ldots,(x_B,y_B)\sim P_n$
+2. `$x_{t_b}^* \gets \argmax_{x\in\cX}\ell((x,y_{t_b}),\theta) - \hat{\lambda}_td_x(x_{t_b},x)$, $b\in[B]$`
+3. `$\hat{\lambda}_{t+1} \gets \max\{0,\hat{\lambda}_t - \alpha_t(\epsilon - \frac{1}{B}\sum_{b=1}^Bd_x(x_{t_b},x_{t_b}^*))\}$`
+4. `$\hat{\theta}_{t+1} \gets \hat{\theta}_t - \frac{\beta_t}{B}\sum_{b=1}^B\partial_\theta\ell((x_{t_b}^*, y_{t_b}),\hat{\theta}_t)$`
+
+until converged
+</textarea>
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## SENSR trains fair ML models
+
+**Condition C1:** the loss class $\{\ell(\cdot,\theta):\theta\in\Theta\}$ satisfies a $\frac{1}{\sqrt{n}}$-ULLN
+
+**Condition C2:** there are hypotheses in $\cH$ with small DR risk; i.e. there is $\theta\in\Theta$ such that 
+
+`$$
+\max\nolimits_{P:W(P,P_\star) \le \epsilon}\Ex_P\big[\ell(Z,\theta)\big] \le \delta^*.
+$$`
+
+**DR risk consistency:** Let `$\hat{\theta}\in\argmin_{\theta\in\Theta}\max_{P:W(P,P_n) \le \epsilon}\Ex_P\big[\ell(Z,\theta)\big]$` be a DR minimizer. Under Conditions C1&ndash;2,
+
+`$$
+\max\nolimits_{P:W(P,P_\star) \le \epsilon}\Ex_P\big[\ell(Z,\hat{\theta})\big] \le \delta^* + O_P({\textstyle\frac{1}{\sqrt{n}}}).
+$$`
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## SENSR trains fair ML models
+
+**Sufficient conditions for C2:** there is $\theta_0\in\Theta$ s.t.
+
+`$$
+\begin{aligned}
+\max_{P:W(P,P_\star) \le \epsilon}\Ex_P\big[\ell(Z,\theta_0)\big] - \Ex_{P^*}\big[\ell(Z,\theta_0)\big] \le \delta_1^* &amp;&amp; \text{(individually fair)}, \\ 
+\Ex_{P^*}\big[\ell(Z,\theta_0)\big] \le \delta_2^* &amp;&amp; \text{(performs well)}.
+\end{aligned}
+$$`
+
+**Consequence of DR risk consistency:** $h_{\hat{\theta}}$ is individually fair; i.e. it passes an audit WHP:
+
+`$$
+\max\nolimits_{P:W(P,P_\star) \le \epsilon}\Ex_P\big[\ell(Z,\hat{\theta})\big] - \Ex_{P^*}\big[\ell(Z,\hat{\theta})\big]\le \delta^* + O_P({\textstyle\frac{1}{\sqrt{n}}}).
+$$`
+</textarea>
+</section>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Sentiment analysis
+
+**Task:** classify words as positive or negative 
+
+**Training data:**   word vectors, sentiment lexicon
+
+- [pre-trained GloVe](https://nlp.stanford.edu/projects/glove/): trained on Common Crawl, 42B tokens, 1.9M vocab, 300d vectors
+- [sentiment lexicon](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon): 6.8k positive and negative sentiment words
+  
+**Model:** 2-layer fully-connected neural net (1k hidden units)
+</textarea>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Sentiment analysis + SENSR
+
+**Audit data:** [list of common names baby in New York city](https://catalog.data.gov/dataset/most-popular-baby-names-by-sex-and-mothers-ethnic-group-new-york-city-8c742)
+
+**Evaluation data:** lists of African-American and European-American names [[Caliskan et al](https://science.sciencemag.org/content/356/6334/183)]:
+- European-American names: *Adam*, *Ryan*, *Paul*, ... , *Courtney*, *Meredith*, *Megan*, ...
+
+- African-American names: *Alonzo*, *Leroy*, *Tyree*, ... , *Shereen*, *Sharise*, *Tawanda*, ...
+</textarea>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+<h2 class="center">Sentiment analysis results</h2>
+
+| Method           | Accuracy               | Race gap               | Gender gap              |
+| ---------------- | ---------------------- | ---------------------- | ----------------------- |
+| SENSR            | 0.94($\pm$0.01)        | 0.30($\pm$0.05)        | 0.19($\pm$0.03)         |
+| SENSR$_0$ expert | 0.93$(\pm$0.01)        | **0.11($\pm$0.05)** | **0.04($\pm$0.03)**  |
+| 2-layer NN       | **0.95($\pm$0.01)** | 7.01($\pm$0.44)        | 5.59($\pm$0.38)         |
+| Sinha et al      | 0.94($\pm$0.01)        | 3.88($\pm$0.26)        | 1.42($\pm$0.29)         |
+| Bolukbasi et al  | 0.94($\pm$0.01)        | 6.85($\pm$0.53)        | 4.33($\pm$0.46)         |
+</textarea>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Summary
+
+Individual fairness is a restricted form of robustness: robustness to certain sensitive perturbations.
+
+Avoid analysis paralysis by learning a fair metric from human supervision.
+
+**OpenReview.net** &gt; [Training individually fair ML models with SENSR](https://openreview.net/forum?id=B1gdkxHFDH)
+
+**github.com**/[IBM/sensitive-subspace-robustness](https://github.com/IBM/sensitive-subspace-robustness)
+
+<p class="small">This work was supported by the NSF under awards DMS-1830247 and DMS-1916271.</p>
+&lt;/section&gt;
+</textarea></section>
+
+				
+			</div>
+
+		</div>
+
+		<script src="/assets/reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: false,
+				hash: true,
+				
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				
+				width: 960,
+				height: 720,
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/assets/reveal.js/plugin/highlight/highlight.js', async: true },
+					{ src: '/assets/reveal.js/plugin/search/search.js', async: true },
+					{ src: '/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/assets/reveal.js/plugin/notes/notes.js', async: true },
+					
+					{ src: '/assets/reveal.js/plugin/math/math.js', async: true }
+					
+				],
+				
+				math: {
+					mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_SVG-full', // See http://docs.mathjax.org/en/latest/config-files.html
+					// pass other options into `MathJax.Hub.Config()`
+					TeX: { 
+						Macros: { 
+							ones: "{\\mathbf{1}}",
+							reals: "{\\mathbf{R}}",
+							symm: "{\\mathbf{S}}",
+							null: "{\\mathop{\\bf null}}",
+							ran: "{\\mathop{\\bf ran}}",
+							Tr: "{\\mathop{\\bf Tr}}",
+							diag: "{\\mathop{\\bf diag}}",
+							card: "{\\mathop{\\bf card}}",
+							rank: "{\\mathop{\\bf rank}}",
+							conv: "{\\mathop{\\bf conv}}",
+							prox: "{\\mathop{\\rm prox}}",
+							Pr: "{\\mathop{\\bf P}}",
+							dto: "{\\overset{d}{\\to}}",
+							pto: "{\\overset{p}{\\to}}",
+							Ex: "{\\mathop{\\bf E}}",
+							Var: "{\\mathop{\\bf Var}}",
+							var: "{\\mathop{\\bf var}}",
+							Cov: "{\\mathop{\\bf Cov}}",
+							cov: "{\\mathop{\\bf cov}}",
+							unif: "{\\mathop{\\rm unif}}",
+							dist: "{\\mathop{\\bf dist}}",
+							maximize: "{\\mathop{\\rm maimize}}",
+							argmax: "{\\mathop{\\rm argmax}}",
+							minimize: "{\\mathop{\\rm minimize}}",
+							argmin: "{\\mathop{\\rm argmin}}",
+							subjectto: "{\\text{subject to}}",
+							epi: "{\\mathop{\\bf epi}}",
+							eps: "{\\epsilon}}",
+							vareps: "{\\varepsilon}}",
+							vol: "{\\mathop{\\bf vol}}",
+							dom: "{\\mathop{\\bf dom}}",
+							intr: "{\\mathop{\\bf int}}",
+							sign: "{\\mathop{\\bf sign}}",
+							IID: "{\\mathop{\\rm IID}}",
+							ind: "{\\mathop{\\rm ind}}",
+							bA: "{\\mathbf{A}}",
+							bB: "{\\mathbf{B}}",
+							bC: "{\\mathbf{C}}",
+							bD: "{\\mathbf{D}}",
+							bE: "{\\mathbf{E}}",
+							bF: "{\\mathbf{F}}",
+							bG: "{\\mathbf{G}}",
+							bH: "{\\mathbf{H}}",
+							bI: "{\\mathbf{I}}",
+							bJ: "{\\mathbf{J}}",
+							bK: "{\\mathbf{K}}",
+							bL: "{\\mathbf{L}}",
+							bM: "{\\mathbf{M}}",
+							bN: "{\\mathbf{N}}",
+							bO: "{\\mathbf{O}}",
+							bP: "{\\mathbf{P}}",
+							bQ: "{\\mathbf{Q}}",
+							bR: "{\\mathbf{R}}",
+							bS: "{\\mathbf{S}}",
+							bT: "{\\mathbf{T}}",
+							bU: "{\\mathbf{U}}",
+							bV: "{\\mathbf{V}}",
+							bW: "{\\mathbf{W}}",
+							bX: "{\\mathbf{X}}",
+							bY: "{\\mathbf{Y}}",
+							bZ: "{\\mathbf{Z}}",
+							bbA: "{\\mathbb{A}}",
+							bbB: "{\\mathbb{B}}",
+							bbC: "{\\mathbb{C}}",
+							bbD: "{\\mathbb{D}}",
+							bbE: "{\\mathbb{E}}",
+							bbF: "{\\mathbb{F}}",
+							bbG: "{\\mathbb{G}}",
+							bbH: "{\\mathbb{H}}",
+							bbI: "{\\mathbb{I}}",
+							bbJ: "{\\mathbb{J}}",
+							bbK: "{\\mathbb{K}}",
+							bbL: "{\\mathbb{L}}",
+							bbM: "{\\mathbb{M}}",
+							bbN: "{\\mathbb{N}}",
+							bbO: "{\\mathbb{O}}",
+							bbP: "{\\mathbb{P}}",
+							bbQ: "{\\mathbb{Q}}",
+							bbR: "{\\mathbb{R}}",
+							bbS: "{\\mathbb{S}}",
+							bbT: "{\\mathbb{T}}",
+							bbU: "{\\mathbb{U}}",
+							bbV: "{\\mathbb{V}}",
+							bbW: "{\\mathbb{W}}",
+							bbX: "{\\mathbb{X}}",
+							bbY: "{\\mathbb{Y}}",
+							bbZ: "{\\mathbb{Z}}",
+							cA: "{\\mathcal{A}}",
+							cB: "{\\mathcal{B}}",
+							cC: "{\\mathcal{C}}",
+							cD: "{\\mathcal{D}}",
+							cE: "{\\mathcal{E}}",
+							cF: "{\\mathcal{F}}",
+							cG: "{\\mathcal{G}}",
+							cH: "{\\mathcal{H}}",
+							cI: "{\\mathcal{I}}",
+							cJ: "{\\mathcal{J}}",
+							cK: "{\\mathcal{K}}",
+							cL: "{\\mathcal{L}}",
+							cM: "{\\mathcal{M}}",
+							cN: "{\\mathcal{N}}",
+							cO: "{\\mathcal{O}}",
+							cP: "{\\mathcal{P}}",
+							cQ: "{\\mathcal{Q}}",
+							cR: "{\\mathcal{R}}",
+							cS: "{\\mathcal{S}}",
+							cT: "{\\mathcal{T}}",
+							cU: "{\\mathcal{U}}",
+							cV: "{\\mathcal{V}}",
+							cW: "{\\mathcal{W}}",
+							cX: "{\\mathcal{X}}",
+							cY: "{\\mathcal{Y}}",
+							cZ: "{\\mathcal{Z}}"
+						} 
+					}
+				},
+				
+			});
+
+		</script>
+
+	</body>
+</html>

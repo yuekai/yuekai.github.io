@@ -1,0 +1,318 @@
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Discussion: Universal Rank Inference via Residual Subsam2ling | Yuekai Sun</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Discussion: Universal Rank Inference via Residual Subsam2ling" />
+<meta name="author" content="Yuekai Sun" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="# Discussion: Universal Rank Inference via Residual Subsampling" />
+<meta property="og:description" content="# Discussion: Universal Rank Inference via Residual Subsampling" />
+<link rel="canonical" href="http://localhost:4000/talks/residual-subsampling-discussion" />
+<meta property="og:url" content="http://localhost:4000/talks/residual-subsampling-discussion" />
+<meta property="og:site_name" content="Yuekai Sun" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-30T01:30:57-07:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-04-30T01:30:57-07:00","dateModified":"2020-04-30T01:30:57-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/talks/residual-subsampling-discussion"},"author":{"@type":"Person","name":"Yuekai Sun"},"description":"# Discussion: Universal Rank Inference via Residual Subsampling","@type":"BlogPosting","url":"http://localhost:4000/talks/residual-subsampling-discussion","headline":"Discussion: Universal Rank Inference via Residual Subsam2ling","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/assets/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="/assets/reveal.js/css/reveal.css">
+		
+		<link rel="stylesheet" href="/assets/reveal.js/css/theme/white.css" id="theme">
+		
+		<link rel="stylesheet" href="/assets/reveal.js/css/YK.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/assets/reveal.js/lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/assets/reveal.js/css/print/pdf.css' : '/assets/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section data-markdown="">
+<textarea data-template="">
+# Discussion: Universal Rank Inference via Residual Subsampling
+
+Yuekai Sun
+
+University of Michigan
+</textarea>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Yingying already explained everything
+
+so what should I say?
+
+Let's take a closer look at the technical conditions.
+</textarea>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## The technical conditions
+
+`$$\tilde{X} = H + W\quad\var[w_{i,j}] \triangleq \sigma_{i,j}^2$$`
+
+1. There is a positive sequence $(\theta_n)$ (which may tend to 0 as $n\to\infty$) such that $\sigma_{i,j}^2 \le \theta_n$ and $\max_{i\in[n]}h_{i,i} \le \theta_n$ 
+
+2. $\alpha_n^2\triangleq\max_{i\in[n]}\sum_{j=1}^n\sigma_{i,j}^2 \to \infty$ as $n\to\infty$
+
+3. $|d_K| \gtrsim \alpha_n^2$
+
+4. $\frac{|d_K|}{\alpha_n} \gtrsim n^\epsilon$ for some $\epsilon &gt; 0$
+</textarea>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## The noise level $\alpha_n$
+
+2. $\alpha_n^2\triangleq\max_{i\in[n]}\sum_{j=1}^n\sigma_{i,j}^2$
+
+**Theorem** [[Bandeira-van Handel](https://projecteuclid.org/euclid.aop/1470139147)]: If $W\in\reals^{n\times n}$ is symmetric and has entries $w_{i,j}\overset{IND}{\sim} N(0,\sigma_{i,j}^2)$, then
+
+`$$\textstyle
+\Ex\|W\| \lesssim \max\nolimits_{i\in[n]}(\sum_{j=1}^n\sigma_{i,j}^2)^{\frac12} + \max_{i,j\in[n]}\sigma_{i,j}\sqrt{\log n}
+$$`
+</textarea>
+</section>
+
+<section>
+<section data-markdown="">
+<textarea data-template="">
+## The signal to noise ratio
+
+<!-- `$$\tilde{X} = H + W\quad\var[w_{i,j}] \triangleq \sigma_{i,j}^2$$` -->
+
+2. $\alpha_n\to\infty$
+3. $\frac{|d_K|}{\alpha_n} \gtrsim \alpha_n$
+4. $\frac{|d_K|}{\alpha_n} \gtrsim n^\epsilon$ for some $\epsilon &gt; 0$
+
+$|d_K|$ is the signal strength, and $\frac{|d_K|}{\alpha_n}$ is the signal-to-noise ratio (SNR)
+
+2 + 3 + 4: the SNR to grow (as $n$ grows)
+</textarea>
+</section>
+
+
+<section data-markdown="">
+<textarea data-template="">
+## The signal to noise ratio
+
+<!-- `$$\tilde{X} = H + W\quad\var[w_{i,j}] \triangleq \sigma_{i,j}^2$$` -->
+
+2. $\alpha_n\to\infty$
+3. $\frac{|d_K|}{\alpha_n} \gtrsim \alpha_n$
+4. $\frac{|d_K|}{\alpha_n} \gtrsim n^\epsilon$ for some $\epsilon &gt; 0$
+
+$|d_K|$ is the signal strength, and $\frac{|d_K|}{\alpha_n}$ is the signal-to-noise ratio (SNR)
+
+2 + 3 + 4: the SNR to grow (as $n$ grows)
+
+<p style="text-align: center"><strong>This is essentially the best we can hope for!</strong></p>
+</textarea>
+</section>
+</section>
+
+<section data-markdown="">
+<textarea data-template="">
+## Implications for network analysis
+
+1. theory is valid for sparse networks
+2. theory is valid for heterogeneous networks
+</textarea>
+</section>
+
+				
+			</div>
+
+		</div>
+
+		<script src="/assets/reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: false,
+				hash: true,
+				
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				
+				width: 960,
+				height: 720,
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '/assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/assets/reveal.js/plugin/highlight/highlight.js', async: true },
+					{ src: '/assets/reveal.js/plugin/search/search.js', async: true },
+					{ src: '/assets/reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/assets/reveal.js/plugin/notes/notes.js', async: true },
+					
+					{ src: '/assets/reveal.js/plugin/math/math.js', async: true }
+					
+				],
+				
+				math: {
+					mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_SVG-full', // See http://docs.mathjax.org/en/latest/config-files.html
+					// pass other options into `MathJax.Hub.Config()`
+					TeX: { 
+						Macros: { 
+							ones: "{\\mathbf{1}}",
+							reals: "{\\mathbf{R}}",
+							symm: "{\\mathbf{S}}",
+							null: "{\\mathop{\\bf null}}",
+							ran: "{\\mathop{\\bf ran}}",
+							Tr: "{\\mathop{\\bf Tr}}",
+							diag: "{\\mathop{\\bf diag}}",
+							card: "{\\mathop{\\bf card}}",
+							rank: "{\\mathop{\\bf rank}}",
+							conv: "{\\mathop{\\bf conv}}",
+							prox: "{\\mathop{\\rm prox}}",
+							Pr: "{\\mathop{\\bf P}}",
+							dto: "{\\overset{d}{\\to}}",
+							pto: "{\\overset{p}{\\to}}",
+							Ex: "{\\mathop{\\bf E}}",
+							Var: "{\\mathop{\\bf Var}}",
+							var: "{\\mathop{\\bf var}}",
+							Cov: "{\\mathop{\\bf Cov}}",
+							cov: "{\\mathop{\\bf cov}}",
+							unif: "{\\mathop{\\rm unif}}",
+							dist: "{\\mathop{\\bf dist}}",
+							maximize: "{\\mathop{\\rm maimize}}",
+							argmax: "{\\mathop{\\rm argmax}}",
+							minimize: "{\\mathop{\\rm minimize}}",
+							argmin: "{\\mathop{\\rm argmin}}",
+							subjectto: "{\\text{subject to}}",
+							epi: "{\\mathop{\\bf epi}}",
+							eps: "{\\epsilon}}",
+							vareps: "{\\varepsilon}}",
+							vol: "{\\mathop{\\bf vol}}",
+							dom: "{\\mathop{\\bf dom}}",
+							intr: "{\\mathop{\\bf int}}",
+							sign: "{\\mathop{\\bf sign}}",
+							IID: "{\\mathop{\\rm IID}}",
+							ind: "{\\mathop{\\rm ind}}",
+							bA: "{\\mathbf{A}}",
+							bB: "{\\mathbf{B}}",
+							bC: "{\\mathbf{C}}",
+							bD: "{\\mathbf{D}}",
+							bE: "{\\mathbf{E}}",
+							bF: "{\\mathbf{F}}",
+							bG: "{\\mathbf{G}}",
+							bH: "{\\mathbf{H}}",
+							bI: "{\\mathbf{I}}",
+							bJ: "{\\mathbf{J}}",
+							bK: "{\\mathbf{K}}",
+							bL: "{\\mathbf{L}}",
+							bM: "{\\mathbf{M}}",
+							bN: "{\\mathbf{N}}",
+							bO: "{\\mathbf{O}}",
+							bP: "{\\mathbf{P}}",
+							bQ: "{\\mathbf{Q}}",
+							bR: "{\\mathbf{R}}",
+							bS: "{\\mathbf{S}}",
+							bT: "{\\mathbf{T}}",
+							bU: "{\\mathbf{U}}",
+							bV: "{\\mathbf{V}}",
+							bW: "{\\mathbf{W}}",
+							bX: "{\\mathbf{X}}",
+							bY: "{\\mathbf{Y}}",
+							bZ: "{\\mathbf{Z}}",
+							bbA: "{\\mathbb{A}}",
+							bbB: "{\\mathbb{B}}",
+							bbC: "{\\mathbb{C}}",
+							bbD: "{\\mathbb{D}}",
+							bbE: "{\\mathbb{E}}",
+							bbF: "{\\mathbb{F}}",
+							bbG: "{\\mathbb{G}}",
+							bbH: "{\\mathbb{H}}",
+							bbI: "{\\mathbb{I}}",
+							bbJ: "{\\mathbb{J}}",
+							bbK: "{\\mathbb{K}}",
+							bbL: "{\\mathbb{L}}",
+							bbM: "{\\mathbb{M}}",
+							bbN: "{\\mathbb{N}}",
+							bbO: "{\\mathbb{O}}",
+							bbP: "{\\mathbb{P}}",
+							bbQ: "{\\mathbb{Q}}",
+							bbR: "{\\mathbb{R}}",
+							bbS: "{\\mathbb{S}}",
+							bbT: "{\\mathbb{T}}",
+							bbU: "{\\mathbb{U}}",
+							bbV: "{\\mathbb{V}}",
+							bbW: "{\\mathbb{W}}",
+							bbX: "{\\mathbb{X}}",
+							bbY: "{\\mathbb{Y}}",
+							bbZ: "{\\mathbb{Z}}",
+							cA: "{\\mathcal{A}}",
+							cB: "{\\mathcal{B}}",
+							cC: "{\\mathcal{C}}",
+							cD: "{\\mathcal{D}}",
+							cE: "{\\mathcal{E}}",
+							cF: "{\\mathcal{F}}",
+							cG: "{\\mathcal{G}}",
+							cH: "{\\mathcal{H}}",
+							cI: "{\\mathcal{I}}",
+							cJ: "{\\mathcal{J}}",
+							cK: "{\\mathcal{K}}",
+							cL: "{\\mathcal{L}}",
+							cM: "{\\mathcal{M}}",
+							cN: "{\\mathcal{N}}",
+							cO: "{\\mathcal{O}}",
+							cP: "{\\mathcal{P}}",
+							cQ: "{\\mathcal{Q}}",
+							cR: "{\\mathcal{R}}",
+							cS: "{\\mathcal{S}}",
+							cT: "{\\mathcal{T}}",
+							cU: "{\\mathcal{U}}",
+							cV: "{\\mathcal{V}}",
+							cW: "{\\mathcal{W}}",
+							cX: "{\\mathcal{X}}",
+							cY: "{\\mathcal{Y}}",
+							cZ: "{\\mathcal{Z}}"
+						} 
+					}
+				},
+				
+			});
+
+		</script>
+
+	</body>
+</html>
