@@ -13,13 +13,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="# Discussion: Universal Rank Inference via Residual Subsampling" />
 <meta property="og:description" content="# Discussion: Universal Rank Inference via Residual Subsampling" />
-<link rel="canonical" href="http://localhost:4000/talks/residual-subsampling-discussion" />
-<meta property="og:url" content="http://localhost:4000/talks/residual-subsampling-discussion" />
+<link rel="canonical" href="http://yuekai.github.io/talks/residual-subsampling-discussion" />
+<meta property="og:url" content="http://yuekai.github.io/talks/residual-subsampling-discussion" />
 <meta property="og:site_name" content="Yuekai Sun" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-04-30T01:30:57-07:00" />
+<meta property="article:published_time" content="2020-05-03T16:00:14-07:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-04-30T01:30:57-07:00","dateModified":"2020-04-30T01:30:57-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/talks/residual-subsampling-discussion"},"author":{"@type":"Person","name":"Yuekai Sun"},"description":"# Discussion: Universal Rank Inference via Residual Subsampling","@type":"BlogPosting","url":"http://localhost:4000/talks/residual-subsampling-discussion","headline":"Discussion: Universal Rank Inference via Residual Subsam2ling","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Yuekai Sun"},"headline":"Discussion: Universal Rank Inference via Residual Subsam2ling","dateModified":"2020-05-03T16:00:14-07:00","datePublished":"2020-05-03T16:00:14-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://yuekai.github.io/talks/residual-subsampling-discussion"},"description":"# Discussion: Universal Rank Inference via Residual Subsampling","@type":"BlogPosting","url":"http://yuekai.github.io/talks/residual-subsampling-discussion","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -63,19 +63,9 @@
 <textarea data-template="">
 # Discussion: Universal Rank Inference via Residual Subsampling
 
-Yuekai Sun
+by Xiao Han, Qing Yang, and Yingying Fan
 
-University of Michigan
-</textarea>
-</section>
-
-<section data-markdown="">
-<textarea data-template="">
-## Yingying already explained everything
-
-so what should I say?
-
-Let's take a closer look at the technical conditions.
+Discussant: Yuekai Sun
 </textarea>
 </section>
 
@@ -101,7 +91,7 @@ Let's take a closer look at the technical conditions.
 
 2. $\alpha_n^2\triangleq\max_{i\in[n]}\sum_{j=1}^n\sigma_{i,j}^2$
 
-**Theorem** [[Bandeira-van Handel](https://projecteuclid.org/euclid.aop/1470139147)]: If $W\in\reals^{n\times n}$ is symmetric and has entries $w_{i,j}\overset{IND}{\sim} N(0,\sigma_{i,j}^2)$, then
+**Theorem** [[Bandeira-van Handel](https://projecteuclid.org/euclid.aop/1470139147)]: If $W\in\reals^{n\times n}$ is symmetric and has independent sub-Gaussian entries, then
 
 `$$\textstyle
 \Ex\|W\| \lesssim \max\nolimits_{i\in[n]}(\sum_{j=1}^n\sigma_{i,j}^2)^{\frac12} + \max_{i,j\in[n]}\sigma_{i,j}\sqrt{\log n}
@@ -122,7 +112,7 @@ $$`
 
 $|d_K|$ is the signal strength, and $\frac{|d_K|}{\alpha_n}$ is the signal-to-noise ratio (SNR)
 
-2 + 3 + 4: the SNR to grow (as $n$ grows)
+2 + 3 + 4: SNR grows (as $n$ grows)
 </textarea>
 </section>
 
@@ -139,19 +129,28 @@ $|d_K|$ is the signal strength, and $\frac{|d_K|}{\alpha_n}$ is the signal-to-no
 
 $|d_K|$ is the signal strength, and $\frac{|d_K|}{\alpha_n}$ is the signal-to-noise ratio (SNR)
 
-2 + 3 + 4: the SNR to grow (as $n$ grows)
+2 + 3 + 4: SNR grows (as $n$ grows)
 
-<p style="text-align: center"><strong>This is essentially the best we can hope for!</strong></p>
+<p style="text-align: center"><strong>This is basically the best we can hope for!</strong></p>
 </textarea>
 </section>
 </section>
 
 <section data-markdown="">
 <textarea data-template="">
-## Implications for network analysis
+## What does this all mean for networks?
 
-1. theory is valid for sparse networks
-2. theory is valid for heterogeneous networks
+**Concentration of random networks:** If `$\tilde{X} \overset{\ind}{\sim}\mathrm{Ber}(H)$`, then 
+
+`$$\textstyle
+\Ex\|\tilde{X} - H\| \lesssim \sqrt{d} + \sqrt{\log n}.
+$$`
+
+$d \triangleq (\sum_{j=1}^nh_{i,j}) \approx \alpha_n^2$ is the max expected degree
+
+If $d \gtrsim \log n$ (i.e. the network is not too sparse), then `$\Ex\|\tilde{X} - H\| \lesssim \sqrt{d}$`.
+
+For many random network models, $|d_K| \gtrsim d$, so the SNR $\frac{|d_K|}{\alpha_n}$ grows.
 </textarea>
 </section>
 

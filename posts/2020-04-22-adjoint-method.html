@@ -5,20 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Adjoint method in PDE-constrained optimization | Yuekai Sun</title>
+<title>The adjoint method in PDE-constrained optimization | Yuekai Sun</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Adjoint method in PDE-constrained optimization" />
+<meta property="og:title" content="The adjoint method in PDE-constrained optimization" />
 <meta name="author" content="Yuekai Sun" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This post supplements Andrew Bradley’s tutorial on the adjoint method. I adopt his notation for total and partial derivatives." />
 <meta property="og:description" content="This post supplements Andrew Bradley’s tutorial on the adjoint method. I adopt his notation for total and partial derivatives." />
-<link rel="canonical" href="http://localhost:4000/posts/2020-04-22-adjoint-method" />
-<meta property="og:url" content="http://localhost:4000/posts/2020-04-22-adjoint-method" />
+<link rel="canonical" href="http://yuekai.github.io/posts/2020-04-22-adjoint-method" />
+<meta property="og:url" content="http://yuekai.github.io/posts/2020-04-22-adjoint-method" />
 <meta property="og:site_name" content="Yuekai Sun" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-04-22T00:00:00-07:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-04-22T00:00:00-07:00","dateModified":"2020-04-22T00:00:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/2020-04-22-adjoint-method"},"author":{"@type":"Person","name":"Yuekai Sun"},"description":"This post supplements Andrew Bradley’s tutorial on the adjoint method. I adopt his notation for total and partial derivatives.","@type":"BlogPosting","url":"http://localhost:4000/posts/2020-04-22-adjoint-method","headline":"Adjoint method in PDE-constrained optimization","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Yuekai Sun"},"headline":"The adjoint method in PDE-constrained optimization","dateModified":"2020-04-22T00:00:00-07:00","datePublished":"2020-04-22T00:00:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://yuekai.github.io/posts/2020-04-22-adjoint-method"},"description":"This post supplements Andrew Bradley’s tutorial on the adjoint method. I adopt his notation for total and partial derivatives.","@type":"BlogPosting","url":"http://yuekai.github.io/posts/2020-04-22-adjoint-method","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -36,7 +36,7 @@
     <div class="wrapper">
 
       <header>
-  <h1><a href="http://localhost:4000/">Yuekai Sun</a></h1>
+  <h1><a href="http://yuekai.github.io/">Yuekai Sun</a></h1>
 
   
   
@@ -51,7 +51,7 @@
 
       <section>
 
-      <h2>Adjoint method in PDE-constrained optimization</h2>
+      <h2>The adjoint method in PDE-constrained optimization</h2>
 
 <blockquote>
   <p>This post supplements Andrew Bradley’s <a href="https://cs.stanford.edu/~ambrad/adjoint_tutorial.pdf">tutorial on the adjoint method</a>. I adopt his notation for total and partial derivatives.</p>
@@ -90,22 +90,22 @@ d_\theta L &amp;= \int_{\cZ}f\cdot d_\theta q(\cdot,T)dz - \int_0^T\int_{\cZ}\la
 &amp;\quad+ \int_{\cZ}\lambda_0(\partial_{q_0}h_0\cdot d_\theta q_0 + \partial_\theta h_0)dz.
 \end{aligned}\]
 
-<p>We are free to choose \(\lambda\) and \(\lambda_0\), so we choose them to simplify the preceding expression. We choose \(\lambda\) as the solution of the adjoint IVP</p>
+<p>We are free to choose \(\lambda\) and \(\lambda_0\), so we choose them to simplify the preceding expression. We choose \(\lambda\) as the solution of the IVP</p>
 
 \[\begin{aligned}
 \partial_t\lambda = \lambda\cdot\partial_qh\\
 \lambda(\cdot,T) = -f
 \end{aligned}\]
 
-<p>so that the terms that depend on \(d_\theta q(\cdot,T)\) and \(d_\theta q\) vanish, and we choose \(\lambda_0\) as the solution of the adjoint system</p>
+<p>so that the terms that depend on \(d_\theta q(\cdot,T)\) and \(d_\theta q\) vanish. The differential equation in this IVP is known the <strong>adjoint equation</strong> (the differential equation in the original IVP is known as the <strong>forward equation</strong>). We choose \(\lambda_0\) as the solution of</p>
 
 \[\lambda_0\cdot\partial_{q_0}h_0 = \lambda(\cdot,0)\]
 
 <p>so that the terms that depend on \(d_\theta q_0 = d_\theta q(\cdot,0)\) vanish. We are left with</p>
 
-\[d_\theta L = \int_{cZ}\lambda_0\cdot\partial_\theta h_0\,dz - \int_0^T\int_{\cZ}\lambda\cdot\partial_\theta h\,dzdt.\]
+\[d_\theta L = \int_{\cZ}\lambda_0\cdot\partial_\theta h_0\,dz - \int_0^T\int_{\cZ}\lambda\cdot\partial_\theta h\,dzdt.\]
 
-<p>Thus to evaluate the total derivative \(d_\theta F\), we</p>
+<p>We see that evaluating the \(d_\theta F\) involves solving the (forward) IVP for \(q\) and the adjoint IVP and system for \(\lambda\) and \(\lambda_0\):</p>
 
 <ol>
   <li>solve the IVP to obtain \(q\),</li>
@@ -121,10 +121,6 @@ from San Francisco, CA
 
 </p>
 
-<!-- 
-<small>tags: <em></em></small>
- -->
-
 
       </section>
 
@@ -135,7 +131,7 @@ from San Francisco, CA
 
   <p><i class="fas fa-phone-alt fa-fw"></i>734-764-4032</p>
 
-  <p><i class="fas fa-envelope-square fa-fw"></i>yuekai<i class="fas fa-at fa-fw"></i>umich.edu</p>
+  <p><i class="far fa-paper-plane fa-fw"></i>yuekai<i class="fas fa-at fa-fw"></i>umich.edu</p>
 
   <p><small>Hosted on GitHub | Powered by <a href="https://jekyllrb.com/">Jekyll</a></small></p>
 </footer>

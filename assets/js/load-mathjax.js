@@ -1,6 +1,5 @@
 window.MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
     macros: {
       ones: "{\\mathbf{1}}",
       reals: "{\\mathbf{R}}",
@@ -18,6 +17,10 @@ window.MathJax = {
       pto: "{\\overset{p}{\\to}}",
       Ex: "{\\mathop{\\bf E}}",
       Cov: "{\\mathop{\\bf Cov}}",
+      cov: "{\\mathop{\\bf cov}}",
+      Var: "{\\mathop{\\bf Var}}",
+      var: "{\\mathop{\\bf var}}",
+      Cov: "{\\mathop{\\bf Cov}}",
       unif: "{\\mathop{\\rm unif}}",
       dist: "{\\mathop{\\bf dist}}",
       maximize: "{\\mathop{\\rm maimize}}",
@@ -33,6 +36,7 @@ window.MathJax = {
       intr: "{\\mathop{\\bf int}}",
       sign: "{\\mathop{\\bf sign}}",
       IID: "{\\mathop{\\rm IID}}",
+      ind: "{\\mathop{\\rm ind}}",
       bA: "{\\mathbf{A}}",
       bB: "{\\mathbf{B}}",
       bC: "{\\mathbf{C}}",
@@ -115,21 +119,6 @@ window.MathJax = {
   },
   svg: {
     fontCache: 'global'
-  },
-  options: {
-    renderActions: {
-      find: [10, function (doc) {
-        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
-          const display = !!node.type.match(/; *mode=display/);
-          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-          const text = document.createTextNode('');
-          node.parentNode.replaceChild(text, node);
-          math.start = {node: text, delim: '', n: 0};
-          math.end = {node: text, delim: '', n: 0};
-          doc.math.push(math);
-        }
-      }, '']
-    }
   }
 };
 
