@@ -199,9 +199,9 @@ section { width: 700px; float: right; margin: 0 0 24px; }
 
 footer { width: 220px; float: left; position: fixed; bottom: 24px; -webkit-font-smoothing: subpixel-antialiased; }
 
-.de-emph { color: #808080; }
+.bullet-icon { margin-right: 0.25em; text-indent: 0; }
 
-.fa-fw { text-indent: 0; }
+.de-emph { color: #808080; }
 
 .no-bottom-margin { margin-bottom: 0; }
 
