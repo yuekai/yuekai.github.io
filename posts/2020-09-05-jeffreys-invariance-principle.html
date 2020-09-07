@@ -18,7 +18,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-05T00:00:00-07:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Yuekai Sun"},"description":"The problem with flat priors","headline":"Jeffreys invariance principle","dateModified":"2020-09-05T00:00:00-07:00","datePublished":"2020-09-05T00:00:00-07:00","url":"http://yuekai.github.io/posts/2020-09-05-jeffreys-invariance-principle","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://yuekai.github.io/posts/2020-09-05-jeffreys-invariance-principle"},"@context":"https://schema.org"}</script>
+{"headline":"Jeffreys invariance principle","dateModified":"2020-09-05T00:00:00-07:00","datePublished":"2020-09-05T00:00:00-07:00","author":{"@type":"Person","name":"Yuekai Sun"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://yuekai.github.io/posts/2020-09-05-jeffreys-invariance-principle"},"description":"The problem with flat priors","@type":"BlogPosting","url":"http://yuekai.github.io/posts/2020-09-05-jeffreys-invariance-principle","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -63,7 +63,7 @@
 
 <h2 id="jeffreys-invariance-principle">Jeffreys invariance principle</h2>
 
-<p>In light of the problem with flat priors, Jeffreys proposed picking priors that are equivariant under reparameterization. Let \(f(y\mid\theta)\) be a model. Suppose we have a method of picking priors for different parameterizations of this model (we’ll see a concrete example later). We can use this method to pick a prior on \(\eta \triangleq \varphi(\theta)\) in two ways. First, we use the method directly to pick a prior on \(\eta\). Call this prior \(\pi_\eta\). Second, we use the method indirectly: use the method to pick a prior on \(\theta\) and use it to induce a prior on \(\eta\). This prior is</p>
+<p>In light of the problem with flat priors, <a href="https://en.wikipedia.org/wiki/Harold_Jeffreys">Harold Jeffreys</a> proposed picking priors that are equivariant under reparameterization. Let \(f(y\mid\theta)\) be a model. Suppose we have a method of picking priors for different parameterizations of this model (we’ll see a concrete example later). We can use this method to pick a prior on \(\eta \triangleq \varphi(\theta)\) in two ways. First, we use the method directly to pick a prior on \(\eta\). Call this prior \(\pi_\eta\). Second, we use the method indirectly: use the method to pick a prior on \(\theta\) and use it to induce a prior on \(\eta\). This prior is</p>
 
 \[\textstyle
 \tilde{\pi}_\eta(\eta) = \pi_\theta(\varphi^{-1}(\eta))\vert\frac{d}{d\theta}\varphi^{-1}(\eta)\vert,\]
