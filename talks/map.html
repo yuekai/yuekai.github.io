@@ -1,0 +1,49 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    	<title>Leaflet debug page</title>
+			
+			<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+			<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+			<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+			<style>
+				body { margin:0; padding:0; }
+				#map { position:absolute; top:0; bottom:0; width:100%; }
+			</style>
+    	<script src="talks.js"></script>
+
+    </head>
+    <body>
+
+    	<div id="map"></div>
+
+			<script>
+				L.mapbox.accessToken = 'pk.eyJ1Ijoic3l1ZWthaSIsImEiOiJjazkwNmc2NHEwMTFyM2dvYjlmMDNoanFoIn0.38bCy3xGf9BxqMjMR3SdNA';
+				var map = L.mapbox.map('map', null, {
+					worldCopyJump: true
+				})
+				.setView([37.09, -95.71], 4)
+				.addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
+				
+				for (var i1 = 0; i1 < talks.length; i1++) {
+					L.mapbox.featureLayer({
+						// this feature is in the GeoJSON format: see geojson.org
+						// for the full specification
+						type: 'Feature',
+						geometry: {
+							type: 'Point',
+							// coordinates here are in longitude, latitude order because
+							// x, y is the standard for GeoJSON and many formats
+							coordinates: [talks[i1][2],talks[i1][3]]
+						},
+						properties: {
+							title: talks[i1][0],
+							description: talks[i1][1]
+						}
+					}).addTo(map);
+				};
+			</script>
+    </body>
+    </html>
+    

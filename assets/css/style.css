@@ -175,9 +175,15 @@ ul, ol { margin: 0 0 24px 20px; text-align: justify; }
 
 li ul, li ol { margin: 0 0 24px 20px; }
 
-dt { color: #404040; float: left; font-weight: 700; line-height: 24px; width: 140px; }
+dt { clear: left; color: #404040; float: left; line-height: 24px; width: 120px; }
 
-dd { margin: 0 0 0 122px 20px; }
+dd { clear: right; margin: 0 0 0 140px; }
+
+dd::after { /* clears proceeding dt(s) ensuring that the next dd will be after next dt */ content: ""; display: table; clear: left; }
+
+dt p, dd p { text-align: left; }
+
+dt:last-child p, dd:last-child p, li:last-child p { margin: 0; }
 
 table { width: 100%; border-top: 1px solid #ccc; border-collapse: collapse; margin: 0 0 24px; }
 
@@ -211,7 +217,7 @@ footer { width: 220px; float: left; position: fixed; bottom: 24px; -webkit-font-
 
 .bullet-icon { margin-right: 0.25em; text-indent: 0; }
 
-.unemph { color: #808080; }
+.date { color: #808080; }
 
 .no-bottom-margin { margin-bottom: 0; }
 
