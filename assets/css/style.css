@@ -195,9 +195,9 @@ th { text-align: left; padding: 11px 12px; }
 
 td { text-align: left; padding: 11px 12px 12px; }
 
-.wrapper { width: 960px; margin: 0 auto; padding: 0 10px; }
+.wrapper { margin: 0 auto; padding: 0 10px; position: relative; width: 960px; }
 
-header { width: 220px; float: left; position: fixed; }
+header { width: 220px; float: left; position: fixed; padding: 0 0 216px; }
 
 header a, footer a { color: #404040; text-decoration: none; }
 
@@ -213,7 +213,7 @@ ul#nav-bar li a { font-size: 20px; font-weight: bold; }
 
 section { width: 700px; float: right; margin: 0 0 24px; }
 
-footer { width: 220px; float: left; position: fixed; bottom: 24px; -webkit-font-smoothing: subpixel-antialiased; }
+footer { float: left; position: fixed; bottom: 24px; width: 220px; -webkit-font-smoothing: subpixel-antialiased; }
 
 .bullet-icon { margin-right: 0.25em; text-indent: 0; }
 
@@ -221,6 +221,6 @@ footer { width: 220px; float: left; position: fixed; bottom: 24px; -webkit-font-
 
 .no-bottom-margin { margin-bottom: 0; }
 
-@media print, screen and (max-width: 960px) { body { padding: 48px 48px 24px; } div.wrapper { width: auto; min-width: 220px; } header, section, footer { float: none; position: static; width: auto; min-width: 220px; } section { border: 1px solid #ccc; border-width: 1px 0; max-width: 700px; margin: 0; padding: 24px 0 0; } footer { margin: 24px 0 0; } }
+@media print, screen and (max-width: 960px) { body { padding: 48px 48px 24px; } div.wrapper { width: auto; min-width: 220px; } header, section, footer { float: none; position: static; width: auto; min-width: 220px; padding: 0; } section { border: 1px solid #ccc; border-width: 1px 0; max-width: 700px; margin: 0; padding: 24px 0 0; } footer { margin: 24px 0 0; } }
 
 /*# sourceMappingURL=style.css.map */
