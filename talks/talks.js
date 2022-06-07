@@ -1,5 +1,17 @@
 var talks = [
   [
+    "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
+    "EcoSta 2022<br />Jan 15, 2022",
+    135.7556075,
+    35.021041
+  ],
+  [
+    "Model evaluation under distribution shift",
+    "2022 ATD Annual Workshop + 2nd Graph Theoretical Methods for Blockchain Data Analysis<br />May 24, 2022",
+    -77.3063733,
+    38.8462236
+  ],
+  [
     "Statistical perspectives on federated learning",
     "NIST AI Metrology presentation series<br />Apr 21, 2022",
     -77.1929215,
@@ -13,12 +25,12 @@ var talks = [
   ],
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
-    "UF Statistics winter workshop<br />Jan 15, 2022",
+    "2022 UF Statistics winter workshop<br />Jan 15, 2022",
     -82.3249846,
     29.6519684
   ],
   [
-    "Does enforcing fairness mitigate algorithmic biases due to distribution shift",
+    "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "ICSA 2021<br />Sep 15, 2021",
     59.9823317,
     57.9110833
@@ -31,7 +43,7 @@ var talks = [
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
-    "Algorithms for Threat Detection annual workshop<br />Nov 10, 2020",
+    "2020 ATD Annual Workshop<br />Nov 10, 2020",
     -77.0365427,
     38.8950368
   ],
@@ -44,12 +56,12 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "IISA 2019<br />Dec 28, 2019",
-    72.8773928,
-    19.0759899
+    72.878176,
+    19.0785451
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
-    "Algorithms for Threat Detection + Algorithms for Modern Power Systems annual workshop<br />Oct 21, 2019",
+    "2019 Algorithms for Threat Detection (ATD) Annual Workshop + Algorithms for Modern Power Systems annual workshop<br />Oct 21, 2019",
     -77.0365427,
     38.8950368
   ],
@@ -103,7 +115,7 @@ var talks = [
   ],
   [
     "Statistical notions of fairness in machine learning",
-    "2017 IMS China<br />Jun 2018",
+    "2017 IMS China<br />Jun 2017",
     108.3627211,
     22.8193063
   ],
