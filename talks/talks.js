@@ -1,13 +1,13 @@
 var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
-    "EcoSta 2022<br />Jan 15, 2022",
+    "EcoSta 2022<br />Jun 4, 2022",
     135.7556075,
     35.021041
   ],
   [
     "Model evaluation under distribution shift",
-    "2022 ATD Annual Workshop + 2nd Graph Theoretical Methods for Blockchain Data Analysis<br />May 24, 2022",
+    "2022 ATD Annual Workshop<br />May 24, 2022",
     -77.3063733,
     38.8462236
   ],
@@ -61,7 +61,7 @@ var talks = [
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
-    "2019 Algorithms for Threat Detection (ATD) Annual Workshop + Algorithms for Modern Power Systems annual workshop<br />Oct 21, 2019",
+    "2019 Algorithms for Threat Detection (ATD) Annual Workshop<br />Oct 21, 2019",
     -77.0365427,
     38.8950368
   ],
