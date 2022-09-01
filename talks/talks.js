@@ -1,5 +1,17 @@
 var talks = [
   [
+    "Domain Adaptation Meets Individual Fairness. And they get along.",
+    "2022 ICSA China Conference<br />Jul 2, 2022",
+    108.9350839,
+    34.3430507
+  ],
+  [
+    "Model evaluation under distribution shift",
+    "2022 ICSA Applied Statistics Symposium<br />Jun 21, 2022",
+    -82.3249846,
+    29.6519684
+  ],
+  [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "EcoSta 2022<br />Jun 4, 2022",
     135.7556075,
@@ -32,8 +44,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "ICSA 2021<br />Sep 15, 2021",
-    59.9823317,
-    57.9110833
+    11.3576917,
+    44.4939936
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
@@ -74,8 +86,8 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "Cornell SCAN seminar<br />Sep 9, 2019",
-    -76.54831458600927,
-    42.437072
+    -76.4968019,
+    42.4396039
   ],
   [
     "Statistical notions of fairness in machine learning",
@@ -188,8 +200,8 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "Cornell statistics department seminar<br />Feb 2015",
-    -76.54831458600927,
-    42.437072
+    -76.4968019,
+    42.4396039
   ],
   [
     "Distributed estimation and inference for sparse regression",
@@ -248,8 +260,8 @@ var talks = [
   [
     "Exact inference for censored regression problems",
     "JSM 2014<br />Aug 4, 2014",
-    -71.0582912,
-    42.3602534
+    -71.060511,
+    42.3554334
   ],
   [
     "Learning mixtures of linear classifiers",
