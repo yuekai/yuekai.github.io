@@ -1,5 +1,11 @@
 var talks = [
   [
+    "Mitigating algorithmic biases caused by distribution shifts",
+    "ICSDS 2022<br />Dec 13, 2022",
+    11.2555757,
+    43.7698712
+  ],
+  [
     "Domain Adaptation Meets Individual Fairness. And they get along.",
     "2022 ICSA China Conference<br />Jul 2, 2022",
     108.9350839,
@@ -50,7 +56,7 @@ var talks = [
   [
     "There is no trade off: enforcing fairness can improve accuracy",
     "JSM 2021<br />Aug 8, 2021",
-    -122.3300624,
+    -122.330062,
     47.6038321
   ],
   [
@@ -86,14 +92,14 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "Cornell SCAN seminar<br />Sep 9, 2019",
-    -76.4968019,
-    42.4396039
+    -76.54836230003966,
+    42.43717945
   ],
   [
     "Statistical notions of fairness in machine learning",
     "UC Riverside statistics department seminar<br />Apr 2, 2019",
-    -117.41024442439222,
-    33.9459413
+    -117.3961623,
+    33.9533546
   ],
   [
     "Three vignettes in data science",
@@ -152,8 +158,8 @@ var talks = [
   [
     "Fast convergence of proximal Newton-type methods in high dimensions",
     "WHOA PSI 2016<br />Sep 20, 2016",
-    -90.1995853,
-    38.6264256
+    -90.2428756,
+    38.6319657
   ],
   [
     "Feature distributed sparse regression",
@@ -176,7 +182,7 @@ var talks = [
   [
     "Communication efficient sparse regression: a one shot approach",
     "Stanford LA/OPT seminar<br />Apr 2015",
-    -122.17029258409187,
+    -122.17030545534064,
     37.426540700000004
   ],
   [
@@ -200,8 +206,8 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "Cornell statistics department seminar<br />Feb 2015",
-    -76.4968019,
-    42.4396039
+    -76.54836230003966,
+    42.43717945
   ],
   [
     "Distributed estimation and inference for sparse regression",
@@ -242,7 +248,7 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "UC Santa Barbara Department of Statistics and Applied Probability seminar<br />Jan 12, 2015",
-    -119.7026673,
+    -119.702667,
     34.4221319
   ],
   [
