@@ -1,5 +1,17 @@
 var talks = [
   [
+    "AI fairness and robustness",
+    "AAAI 2023<br />Feb 7, 2023",
+    -77.0365427,
+    38.8950368
+  ],
+  [
+    "Mitigating algorithmic biases caused by distribution shifts",
+    "Tech for Justice seminar<br />Jan 25, 2023",
+    59.9823317,
+    57.9110833
+  ],
+  [
     "Mitigating algorithmic biases caused by distribution shifts",
     "ICSDS 2022<br />Dec 13, 2022",
     11.2555757,
@@ -8,8 +20,8 @@ var talks = [
   [
     "Domain Adaptation Meets Individual Fairness. And they get along.",
     "2022 ICSA China Conference<br />Jul 2, 2022",
-    108.9350839,
-    34.3430507
+    108.9423443,
+    34.2607713
   ],
   [
     "Model evaluation under distribution shift",
@@ -50,8 +62,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "ICSA 2021<br />Sep 15, 2021",
-    11.3576917,
-    44.4939936
+    59.9823317,
+    57.9110833
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
@@ -92,8 +104,8 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "Cornell SCAN seminar<br />Sep 9, 2019",
-    -76.54836230003966,
-    42.43717945
+    -76.4968019,
+    42.4396039
   ],
   [
     "Statistical notions of fairness in machine learning",
@@ -158,8 +170,8 @@ var talks = [
   [
     "Fast convergence of proximal Newton-type methods in high dimensions",
     "WHOA PSI 2016<br />Sep 20, 2016",
-    -90.2428756,
-    38.6319657
+    -90.1910154,
+    38.6280278
   ],
   [
     "Feature distributed sparse regression",
@@ -206,8 +218,8 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "Cornell statistics department seminar<br />Feb 2015",
-    -76.54836230003966,
-    42.43717945
+    -76.4968019,
+    42.4396039
   ],
   [
     "Distributed estimation and inference for sparse regression",
