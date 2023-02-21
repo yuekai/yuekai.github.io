@@ -131,7 +131,7 @@ html, body { height: 100%; }
 
 body { background-color: #fff; padding: 48px 40px; font: 16px / 1.5 "Noto Sans", sans-serif; color: #24292f; }
 
-.wrapper { width: 960px; margin: 0 auto; padding: 0 10px; position: relative; height: auto; min-height: 580px; }
+.wrapper { margin: 0 auto; padding: 0 10px; position: relative; height: auto; min-height: 580px; width: 960px; }
 
 h1, h2, h3, h4 { color: #24292f; margin: 0 0 24px; }
 
