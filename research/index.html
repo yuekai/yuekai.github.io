@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Research | Yuekai Sun</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Research" />
+<meta name="author" content="Yuekai Sun" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Yuekai’s academic site" />
+<meta property="og:description" content="Yuekai’s academic site" />
+<link rel="canonical" href="http://yuekai.github.io/research/" />
+<meta property="og:url" content="http://yuekai.github.io/research/" />
+<meta property="og:site_name" content="Yuekai Sun" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Research" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Yuekai Sun"},"description":"Yuekai’s academic site","headline":"Research","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://yuekai.github.io/assets/img/Yuekai.jpg"},"name":"Yuekai Sun"},"url":"http://yuekai.github.io/research/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+  <script src="https://kit.fontawesome.com/ef661a1083.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon/apple-touch-icon.png">
+  
+</head>
+  <body>
+    <div class="wrapper">
+
+      <header>
+  <h1><a href="http://yuekai.github.io/">Yuekai Sun</a></h1>
+
+  
+  
+  <ul id="nav-bar"><li>
+      <a href="/research/">Research</a>
+    </li><li>
+      <a href="/papers/">Papers</a>
+    </li><li>
+      <a href="/teaching/">Teaching</a>
+    </li></ul>
+</header>
+
+      <section>
+
+      <h1 id="research">Research</h1>
+
+<p>AI can match or even outperform humans in many tasks (even <a href="https://www.deepmind.com/blog/competitive-programming-with-alphacode">competitive programming</a>), but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades the AI’s performance but can also unduly harm protected demographic groups. For example,</p>
+
+<ol>
+  <li>gender classification AI tends to misclassify dark-skinned females because they are underrepresented in training data [<a href="http://gendershades.org/">Buolamwini &amp; Gebru</a>];</li>
+  <li>chest X-ray assessment AI performs worse when they are evaluated in hospitals that were not included in the training dataset [<a href="https://doi.org/10.1371/journal.pmed.1002683">Zech et al</a>];</li>
+  <li>polygenic risk scores are many times less accurate on non-European people because most subjects in genome-wide association studies are European [<a href="https://www.nature.com/articles/s41588-019-0379-x">Martin et al</a>].</li>
+</ol>
+
+<p>My research leverages statistical science to improve the robustness of AI in the real world. Towards this goal, we work on:</p>
+
+<!-- For example, here is a visual question answering AI demonstrating human-level visual and language comprehension: when asked "What is the mustache made of?", it answers with "banana". However, when asked unexpected questions such as "What is the ground made of?", it gets confused and outputs nonsense. 
+
+<div class="row">
+  <div class="column" style="margin: 0 20px 0 0; width:196px">
+    <p><img src="/assets/img/VQA.png"></p>
+  </div>
+  <div class="column" style="width:350px">
+    <table>
+      <tbody>
+        <tr>
+          <td style="padding: 3px 12px 4px;">What is the mustache made of?</td>
+          <td style="padding: 3px 12px 4px;">banana</td>
+        </tr>
+        <tr>
+          <td style="padding: 3px 12px 4px;">What is the ground made of?</td>
+          <td style="padding: 3px 12px 4px;"><span style="color:#cf222e">banana</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 3px 12px 4px;">What is the bed made of?</td>
+          <td style="padding: 3px 12px 4px;"><span style="color:#cf222e">banana</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 3px 12px;">What is the man made of?</td>
+          <td style="padding: 3px 12px;"><span style="color:#cf222e">banana</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p class="caption">In this example, the AI fixates on the word "what" in the question: if "what" is in the question, then the AI will answer with "banana" 95% of the time (see <a href="https://arxiv.org/abs/1611.05817">Ribeiro et al</a> for details).</p> -->
+
+<h2 id="adversarial-and-distributional-robustness">Adversarial and distributional robustness</h2>
+
+<p>AI often encounters adversarial and out-of-distribution inputs in the real world. Although there are methods for training adversarially and distributionally robust AI, many lack theoretical justification. This is a form of technical debt that hinders us from anticipating AI safety issues before they occur. We seek to repay this technical debt. Some recent papers are</p>
+
+<ol>
+  <li><strong><a href="https://openreview.net/forum?id=XSNfXG9HBAu">Domain Adaptation meets Individual Fairness. And they get along.</a></strong><br />
+D Mukherjee, F Petersen, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
+  <li><strong><a href="https://openreview.net/forum?id=oWqWiazEb62">Calibrated Data-Dependent Constraints with Exact Satisfaction Guarantees</a></strong><br />
+S Xue, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
+</ol>
+
+<h2 id="algorithmic-fairness">Algorithmic fairness</h2>
+
+<p>We developed a suite of algorithms to help practitioners operationalize <em>individual fairness (IF)</em>, an intuitive notion of algorithmic fairness that requires algorithms to ``treat similar inputs similarly’’ [<a href="https://doi.org/10.1145/2090236.2090255">Dwork et al</a>]. The suite includes algorithms for:</p>
+
+<ol>
+  <li><em>aligning</em> similarity metrics with human feedback [<a href="http://www.openreview.net/pdf?id=B1gdkxHFDH">Yurochkin et al</a>, <a href="http://proceedings.mlr.press/v119/mukherjee20a.html">Mukherjee et al</a>],</li>
+  <li><em>auditing</em> algorithms for (individual) unfairness [<a href="http://proceedings.mlr.press/v108/xue20a.html">Xue et al</a>, <a href="https://openreview.net/forum?id=z9k8BWL-_2u">Maity et al</a>],</li>
+  <li><em>training</em> individually fair AI [<a href="https://openreview.net/forum?id=JBAa9we1AL">Vargo et al</a>, <a href="https://openreview.net/forum?id=DktZb97_Fx">Yurochkin &amp; Sun</a>, <a href="https://openreview.net/forum?id=qGeqg4_hA2">Petersen et al</a>].</li>
+</ol>
+
+<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics. The (similarity) metric learning algorithms address this barrier in the way of operationalizing IF. Although we are no longer actively developing the suite, we are keen to work with practitioners to identify and fill any gaps in the suite’s capabilities.</p>
+
+<p class="img">
+  <iframe width="540" height="303.75" src="https://video.ibm.com/embed/recorded/131932983" scrolling="no" allowfullscreen="" webkitallowfullscreen="" frameborder="0" style="border: none; border-radius: 8px;"></iframe><br />
+  <span class="caption">Our colleagues at IBM Research implemented most of the methods in their <a href="https://ibm.github.io/inFairness/">inFairness</a> package.</span>
+</p>
+
+<h2 id="learning-under-distribution-shifts">Learning under distribution shifts</h2>
+
+<p>Many instances of algorithmic bias are caused by distribution shifts (see preceding examples). To develop <em>effective</em> algorithmic fairness practices, we must address the underlying distribution shift. This led to an ongoing effort to develop <em>statistically-principled</em> methods for transfer learning and domain adaptation. Some representative papers are:</p>
+
+<ol>
+  <li><strong><a href="https://openreview.net/forum?id=DBMttEEoLbw">Understanding new tasks through the lens of training data via exponential tilting</a></strong><br />
+S Maity, M Yurochkin, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
+  <li><strong><a href="https://openreview.net/forum?id=6mUrD5rg-UU">Does enforcing fairness mitigate biases caused by subpopulation shift</a></strong><br />
+S Maity, D Mukherjee, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
+  <li><strong><a href="https://jmlr.org/papers/v23/21-1519.html">Minimax optimal approaches to the label shift problem</a></strong><br />
+S Maity, Y Sun, M Banerjee. <em>Journal of Machine Learning Research</em> (2022).</li>
+</ol>
+
+
+      </section>
+
+      <footer>
+  <p><i class="bullet-icon fas fa-map-marker-alt fa-fw"></i>271 West Hall<br>
+  1085 S University Ave<br>
+  Ann Arbor, MI 48109</p>
+
+  <p><i class="bullet-icon fas fa-phone-alt fa-fw"></i>734-764-4032</p>
+
+  <p><i class="bullet-icon fas fa-envelope fa-fw"></i>yuekai<i class="fas fa-at fa-fw"></i>umich.edu</p>
+
+  <p class="small">Hosted on GitHub | Powered by <a href="https://jekyllrb.com/">Jekyll</a></p>
+</footer>
+
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+  </body>
+</html>
