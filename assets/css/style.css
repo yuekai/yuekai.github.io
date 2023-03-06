@@ -125,13 +125,13 @@
 
 .highlight { background-color: #f8f8f8; }
 
-* { margin: 0; padding: 0; line-height: 24px; }
+* { margin: 0; padding: 0; }
 
-html, body { height: 100%; }
+html { height: 100%; }
 
-body { background-color: #fff; padding: 48px 40px; font: 16px / 1.5 "Noto Sans", sans-serif; color: #24292f; }
+body { background-color: #fff; color: #24292f; font: 16px / 1.5 "Noto Sans", sans-serif; min-height: 100%; padding: 48px 40px; }
 
-.wrapper { margin: 0 auto; padding: 0 10px; position: relative; height: auto; min-height: 580px; width: 960px; }
+#wrapper { height: auto; margin: 0 auto; padding: 0 10px; position: relative; width: 960px; }
 
 h1, h2, h3, h4 { color: #24292f; margin: 0 0 24px; }
 
@@ -141,17 +141,9 @@ h2 { font-size: 20px; }
 
 h3 { font-size: 18px; }
 
+p, table, pre, dl { line-height: 1.5; margin: 0 0 24px; }
+
 p { text-align: justify; }
-
-p, table, pre, dl { margin: 0 0 24px; }
-
-.caption { font-size: 12px; line-height: 18px; margin: 0 0 18px; }
-
-p.img { text-align: center; }
-
-img { max-width: 100%; }
-
-p.post-date { color: #57606a; }
 
 p.small { font-size: 12px; }
 
@@ -165,7 +157,13 @@ blockquote p { color: #24292f; }
 
 blockquote p:last-child { margin: 0; }
 
-a { color: #0969da; line-height: inherit; text-decoration: none; }
+img { max-width: 100%; }
+
+div.fig { margin: 0 auto 24px; }
+
+div.fig p.caption { font-size: 12px; margin: 0; max-width: 100%; }
+
+a { color: #0969da; text-decoration: none; }
 
 a:hover, a:focus { color: #218bff; }
 
@@ -183,27 +181,27 @@ ul, ol { margin: 0 0 24px 20px; text-align: justify; }
 
 li ul, li ol { margin: 0 0 24px 20px; }
 
-dt { clear: left; color: #24292f; float: left; line-height: 24px; width: 120px; }
+dt { clear: left; color: #24292f; float: left; width: 120px; }
 
 dd { clear: right; margin: 0 0 12px 140px; }
 
-dd::after { /* clears proceeding dt(s) ensuring that the next dd will be after next dt */ content: ""; display: table; clear: left; }
+dd::after { /* clears proceeding dt(s) ensuring that the next dd will be after next dt */ content: ""; clear: left; display: table; }
 
 dt p, dd p { text-align: left; }
 
 dt:last-child p, dd:last-child p, li:last-child p { margin: 0; }
 
-table { width: 100%; border-top: 1px solid #d0d7de; border-collapse: collapse; margin: 0 0 24px; }
+table { border-top: 1px solid #d0d7de; border-collapse: collapse; margin: 0 0 24px; width: 100%; }
 
 thead { background: #f6f8fa; }
 
 tr { border-bottom: 1px solid #d0d7de; vertical-align: top; }
 
-th { text-align: left; padding: 11px 12px; }
+th { padding: 11px 12px; text-align: left; }
 
-td { text-align: left; padding: 11px 12px 12px; }
+td { padding: 11px 12px 12px; text-align: left; }
 
-header { width: 220px; float: left; position: fixed; }
+header { float: left; position: fixed; width: 220px; }
 
 header a, footer a { color: #24292f; text-decoration: none; }
 
@@ -221,18 +219,16 @@ ul#nav-bar li a { font-size: 20px; font-weight: bold; }
 
 section { width: 700px; float: right; margin: 0 0 24px; }
 
-footer { float: left; position: fixed; bottom: 0; width: 220px; -webkit-font-smoothing: subpixel-antialiased; }
+footer { float: left; position: fixed; bottom: 0; width: 220px; }
 
 .bullet-icon { margin-right: 0.25em; text-indent: 0; }
-
-.date { color: #57606a; }
 
 .no-bottom-margin { margin-bottom: 0; }
 
 .column { float: left; margin: 0 20px 0 0; width: 50%; }
 
-.row::after { content: ""; display: table; clear: both; }
+.row::after { content: ""; clear: both; display: table; }
 
-@media print, screen and (max-width: 960px) { body { padding: 48px 48px 24px; } div.wrapper { width: auto; min-width: 220px; } header, section, footer { float: none; position: static; width: auto; min-width: 220px; padding: 0; } section { border: 1px solid #d0d7de; border-width: 1px 0; max-width: 700px; margin: 0; padding: 24px 0 0; } footer { margin: 24px 0 0; overflow: auto; } }
+@media print, screen and (max-width: 960px) { body { min-width: 480px; padding: 48px 40px 24px; } #wrapper { min-width: 460px; width: auto; } header, section, footer { float: none; position: static; padding: 0; } section { border: 1px solid #d0d7de; border-width: 1px 0; margin: 0; min-width: 460px; padding: 24px 0 0; width: auto; } footer { margin: 24px 0 0; overflow: auto; } }
 
 /*# sourceMappingURL=style.css.map */
