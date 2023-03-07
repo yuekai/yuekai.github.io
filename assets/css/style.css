@@ -127,9 +127,9 @@
 
 * { margin: 0; padding: 0; }
 
-html { height: 100%; }
+html, body { height: 100%; }
 
-body { background-color: #fff; color: #24292f; font: 16px / 1.5 "Noto Sans", sans-serif; min-height: 100%; padding: 48px 40px; }
+body { background-color: #fff; color: #24292f; font: 16px / 1.5 "Noto Sans", sans-serif; padding: 48px 40px; }
 
 #wrapper { height: auto; margin: 0 auto; padding: 0 10px; position: relative; width: 960px; }
 
@@ -157,11 +157,13 @@ blockquote p { color: #24292f; }
 
 blockquote p:last-child { margin: 0; }
 
-img { max-width: 100%; }
+iframe { width: 100%; height: 100%; }
 
-div.fig { margin: 0 auto 24px; }
+iframe, img { max-width: 100%; }
 
-div.fig p.caption { font-size: 12px; margin: 0; max-width: 100%; }
+figure { margin: 0 auto 24px; }
+
+figure p.caption { font-size: 12px; margin: 0; max-width: 100%; }
 
 a { color: #0969da; text-decoration: none; }
 
@@ -211,11 +213,11 @@ header h1 { font-size: 32px; line-height: 32px; margin: -8px 0 24px; }
 
 img#profile-pic { border: 1px solid #d0d7de; border-radius: 50%; width: 156px; padding: 5px; }
 
-ul#nav-bar { list-style-type: none; margin: 0 0 24px; }
+nav ul { list-style-type: none; margin: 0 0 24px; }
 
-ul#nav-bar li { margin: 0 0 24px; }
+nav ul li { margin: 0 0 24px; }
 
-ul#nav-bar li a { font-size: 20px; font-weight: bold; }
+nav ul li a { font-size: 20px; font-weight: bold; }
 
 section { width: 700px; float: right; margin: 0 0 24px; }
 
