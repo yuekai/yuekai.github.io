@@ -231,6 +231,6 @@ footer { float: left; position: fixed; bottom: 0; width: 220px; }
 
 .row::after { content: ""; clear: both; display: table; }
 
-@media print, screen and (max-width: 960px) { body { min-width: 480px; padding: 48px 40px 24px; } #wrapper { min-width: 460px; width: auto; } header, section, footer { float: none; position: static; padding: 0; } section { border: 1px solid #d0d7de; border-width: 1px 0; margin: 0; min-width: 460px; padding: 24px 0 0; width: auto; } footer { margin: 24px 0 0; overflow: auto; } }
+@media print, screen and (max-width: 960px) { body { min-width: 320px; padding: 48px 40px 24px; } #wrapper { min-width: 300px; width: auto; } header, section, footer { float: none; position: static; padding: 0; } section { border: 1px solid #d0d7de; border-width: 1px 0; margin: 0; min-width: 300px; padding: 24px 0 0; width: auto; } footer { margin: 24px 0 0; overflow: auto; } }
 
 /*# sourceMappingURL=style.css.map */
