@@ -64,38 +64,6 @@
 
 <p>My research leverages statistical science to improve the robustness of AI in the real world. Towards this goal, we work on:</p>
 
-<!-- For example, here is a visual question answering AI demonstrating human-level visual and language comprehension: when asked "What is the mustache made of?", it answers with "banana". However, when asked unexpected questions such as "What is the ground made of?", it gets confused and outputs nonsense. 
-
-<div class="row">
-  <div class="column" style="margin: 0 20px 0 0; width:196px">
-    <p><img src="/assets/img/VQA.png"></p>
-  </div>
-  <div class="column" style="width:350px">
-    <table>
-      <tbody>
-        <tr>
-          <td style="padding: 3px 12px 4px;">What is the mustache made of?</td>
-          <td style="padding: 3px 12px 4px;">banana</td>
-        </tr>
-        <tr>
-          <td style="padding: 3px 12px 4px;">What is the ground made of?</td>
-          <td style="padding: 3px 12px 4px;"><span style="color:#cf222e">banana</span></td>
-        </tr>
-        <tr>
-          <td style="padding: 3px 12px 4px;">What is the bed made of?</td>
-          <td style="padding: 3px 12px 4px;"><span style="color:#cf222e">banana</span></td>
-        </tr>
-        <tr>
-          <td style="padding: 3px 12px;">What is the man made of?</td>
-          <td style="padding: 3px 12px;"><span style="color:#cf222e">banana</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<p class="caption">In this example, the AI fixates on the word "what" in the question: if "what" is in the question, then the AI will answer with "banana" 95% of the time (see <a href="https://arxiv.org/abs/1611.05817">Ribeiro et al</a> for details).</p> -->
-
 <h2 id="adversarial-and-distributional-robustness">Adversarial and distributional robustness</h2>
 
 <p>AI often encounters adversarial and out-of-distribution inputs in the real world. Although there are methods for training adversarially and distributionally robust AI, many lack theoretical justification. This is a form of technical debt that hinders us from anticipating AI safety issues before they occur. We seek to repay this technical debt. Some recent papers are</p>
@@ -105,6 +73,8 @@
 D Mukherjee, F Petersen, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
   <li><strong><a href="https://openreview.net/forum?id=oWqWiazEb62">Calibrated Data-Dependent Constraints with Exact Satisfaction Guarantees</a></strong><br />
 S Xue, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
+  <li><strong><a href="https://openreview.net/forum?id=Tv0O_cAdKtW">On sensitivity of meta-learning to support data</a></strong><br />
+M Agarwal, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
 </ol>
 
 <h2 id="algorithmic-fairness">Algorithmic fairness</h2>
@@ -112,15 +82,16 @@ S Xue, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
 <p>We developed a suite of algorithms to help practitioners implement <strong>individual fairness (IF)</strong>, an intuitive notion of algorithmic fairness that requires algorithms to ``treat similar inputs similarly’’ [<a href="https://doi.org/10.1145/2090236.2090255">Dwork et al</a>]. The suite includes algorithms for:</p>
 
 <ol>
-  <li><em>aligning</em> similarity metrics with human feedback [<a href="http://www.openreview.net/pdf?id=B1gdkxHFDH">Yurochkin et al</a>, <a href="http://proceedings.mlr.press/v119/mukherjee20a.html">Mukherjee et al</a>],</li>
+  <li><em>aligning</em> similarity metrics with user feedback [<a href="http://www.openreview.net/pdf?id=B1gdkxHFDH">Yurochkin et al</a>, <a href="http://proceedings.mlr.press/v119/mukherjee20a.html">Mukherjee et al</a>],</li>
   <li><em>auditing</em> algorithms for (individual) unfairness [<a href="http://proceedings.mlr.press/v108/xue20a.html">Xue et al</a>, <a href="https://openreview.net/forum?id=z9k8BWL-_2u">Maity et al</a>],</li>
   <li><em>training</em> individually fair AI [<a href="https://openreview.net/forum?id=JBAa9we1AL">Vargo et al</a>, <a href="https://openreview.net/forum?id=DktZb97_Fx">Yurochkin &amp; Sun</a>, <a href="https://openreview.net/forum?id=qGeqg4_hA2">Petersen et al</a>].</li>
 </ol>
 
-<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics. The (similarity) metric learning algorithms in the suite help overcome this barrier in the way of implementing IF. Our colleagues at IBM Research implemented most of the methods in their <a href="https://ibm.github.io/inFairness/">inFairness</a> package. Here is a tutorial from IBM Think 2022 on AI fairness that covers the package’s capabilities.</p>
+<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. To broaden IF adoption in AI practice, our colleagues at IBM Research implemented the suite of methods in the <a href="https://ibm.github.io/inFairness/">inFairness</a> package.</p>
 
 <figure style="max-width:540px">
   <iframe width="540" height="303.75" src="https://video.ibm.com/embed/recorded/131932983" scrolling="no" allowfullscreen="" webkitallowfullscreen="" frameborder="0" style="aspect-ratio: 16/9; border: none; border-radius: 8px;"></iframe>
+  <figurecaption>A tutorial on our work on individual fairness and the <a href="https://ibm.github.io/inFairness/">inFairness</a> package. </figurecaption>
 </figure>
 
 <h2 id="learning-under-distribution-shifts">Learning under distribution shifts</h2>
