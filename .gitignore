@@ -1,12 +1,2 @@
 assets/fonts
-assets/reveal.js/*
-!assets/reveal.js/css
-!assets/reveal.js/js
-!assets/reveal.js/lib
-!assets/reveal.js/plugin
 styleguide
-*.md
-*.psd
-*.scss
-LICENSE
-README
