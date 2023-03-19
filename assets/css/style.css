@@ -693,10 +693,6 @@ h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, strong a:focus {
   color: #0969da;
 }
 
-small a {
-  color: #57606a;
-}
-
 code, pre {
   font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
   color: #24292f;
@@ -781,13 +777,12 @@ header {
   width: 220px;
 }
 
-header a, footer a {
+header a {
   color: #24292f;
   text-decoration: none;
 }
 
-header a:hover, footer a:hover,
-header a:focus footer a:focus {
+header a:hover, header a:focus {
   color: #0969da;
 }
 
