@@ -64,7 +64,7 @@
 
 <h2 id="adversarial-and-distributional-robustness">Adversarial and distributional robustness</h2>
 
-<p>AI often encounters adversarial and out-of-distribution inputs in the real world. Although there are methods for training adversarially and distributionally robust AI, many lack theoretical justification. This is a form of technical debt that hinders us from anticipating AI safety issues before they occur. We seek to repay this technical debt. Some recent papers are</p>
+<p>AI often encounters adversarial and out-of-distribution inputs in the real world. Although there are many methods for training adversarially and distributionally robust AI, most lack theoretical justification. This is a form of technical debt that hinders us from anticipating AI safety issues before they occur. We seek to repay this technical debt. Some recent papers are</p>
 
 <ol>
   <li><strong><a href="https://openreview.net/forum?id=XSNfXG9HBAu">Domain Adaptation meets Individual Fairness. And they get along.</a></strong><br />
@@ -77,19 +77,19 @@ M Agarwal, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
 
 <h2 id="algorithmic-fairness">Algorithmic fairness</h2>
 
-<p>We developed a suite of algorithms to help practitioners implement <strong>individual fairness (IF)</strong>, an intuitive notion of algorithmic fairness that requires algorithms to ``treat similar inputs similarly’’ [<a href="https://doi.org/10.1145/2090236.2090255">Dwork et al</a>]. The suite includes algorithms for:</p>
+<p>We developed a suite of algorithms to help practitioners implement <strong>individual fairness (IF)</strong>, an intuitive notion of algorithmic fairness that requires algorithms to ``treat similar inputs similarly’’. The suite includes algorithms for:</p>
 
 <ol>
-  <li><em>aligning</em> similarity metrics with user feedback [<a href="http://www.openreview.net/pdf?id=B1gdkxHFDH">Yurochkin et al</a>, <a href="http://proceedings.mlr.press/v119/mukherjee20a.html">Mukherjee et al</a>],</li>
-  <li><em>auditing</em> algorithms for (individual) unfairness [<a href="http://proceedings.mlr.press/v108/xue20a.html">Xue et al</a>, <a href="https://openreview.net/forum?id=z9k8BWL-_2u">Maity et al</a>],</li>
-  <li><em>training</em> individually fair AI [<a href="https://openreview.net/forum?id=JBAa9we1AL">Vargo et al</a>, <a href="https://openreview.net/forum?id=DktZb97_Fx">Yurochkin &amp; Sun</a>, <a href="https://openreview.net/forum?id=qGeqg4_hA2">Petersen et al</a>].</li>
+  <li>aligning similarity metrics with user feedback,</li>
+  <li>auditing algorithms for (individual) unfairness,</li>
+  <li>training individually fair AI.</li>
 </ol>
 
 <p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. To broaden IF adoption in AI practice, our colleagues at IBM Research implemented the suite of methods in the <a href="https://ibm.github.io/inFairness/">inFairness</a> package.</p>
 
 <figure style="max-width:540px">
-  <iframe width="540" height="303.75" src="https://video.ibm.com/embed/recorded/131932983" scrolling="no" allowfullscreen="" webkitallowfullscreen="" frameborder="0" style="aspect-ratio: 16/9; border: none; border-radius: 8px;"></iframe>
-  <figurecaption>A tutorial on our work on individual fairness and the <a href="https://ibm.github.io/inFairness/">inFairness</a> package. </figurecaption>
+  <iframe width="540" height="303.75" src="https://video.ibm.com/embed/recorded/131932983" scrolling="no" allowfullscreen="" webkitallowfullscreen="" frameborder="0" style="aspect-ratio: 16/9;"></iframe>
+  <figurecaption><p>A tutorial on our work on individual fairness and the <a href="https://ibm.github.io/inFairness/">inFairness</a> package.</p></figurecaption>
 </figure>
 
 <h2 id="learning-under-distribution-shifts">Learning under distribution shifts</h2>
@@ -99,7 +99,7 @@ M Agarwal, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
 <ol>
   <li><strong><a href="https://openreview.net/forum?id=DBMttEEoLbw">Understanding new tasks through the lens of training data via exponential tilting</a></strong><br />
 S Maity, M Yurochkin, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
-  <li><strong><a href="https://openreview.net/forum?id=6mUrD5rg-UU">Does enforcing fairness mitigate biases caused by subpopulation shift</a></strong><br />
+  <li><strong><a href="https://openreview.net/forum?id=6mUrD5rg-UU">Does enforcing fairness mitigate biases caused by subpopulation shift?</a></strong><br />
 S Maity, D Mukherjee, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
   <li><strong><a href="https://jmlr.org/papers/v23/21-1519.html">Minimax optimal approaches to the label shift problem</a></strong><br />
 S Maity, Y Sun, M Banerjee. <em>Journal of Machine Learning Research</em> (2022).</li>
