@@ -52,7 +52,7 @@
 
       <h1 id="research">Research</h1>
 
-<p>AI can match or even outperform humans in many tasks (even <a href="https://www.deepmind.com/blog/competitive-programming-with-alphacode">competitive programming</a>), but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades the AI’s performance but can also unduly harm protected demographic groups. For example,</p>
+<p>AI can match or even outperform humans in many tasks, but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades the AI’s performance but can also unduly harm protected demographic groups. For example,</p>
 
 <ol>
   <li>gender classification AI tends to misclassify dark-skinned females because they are underrepresented in training data [<a href="http://gendershades.org/">Buolamwini &amp; Gebru</a>];</li>
@@ -71,8 +71,8 @@
 D Mukherjee, F Petersen, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
   <li><strong><a href="https://openreview.net/forum?id=oWqWiazEb62">Calibrated Data-Dependent Constraints with Exact Satisfaction Guarantees</a></strong><br />
 S Xue, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
-  <li><strong><a href="https://openreview.net/forum?id=Tv0O_cAdKtW">On sensitivity of meta-learning to support data</a></strong><br />
-M Agarwal, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
+  <li><strong><a href="https://jmlr.org/papers/v23/21-1519.html">Minimax optimal approaches to the label shift problem</a></strong><br />
+S Maity, Y Sun, M Banerjee. <em>Journal of Machine Learning Research</em> (2022).</li>
 </ol>
 
 <h2 id="algorithmic-fairness">Algorithmic fairness</h2>
@@ -81,15 +81,24 @@ M Agarwal, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
 
 <ol>
   <li>aligning similarity metrics with user feedback,</li>
-  <li>auditing algorithms for (individual) unfairness,</li>
+  <li>auditing algorithms for violations of IF,</li>
   <li>training individually fair AI.</li>
 </ol>
 
-<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. To broaden IF adoption in AI practice, our colleagues at IBM Research implemented the suite of methods in the <a href="https://ibm.github.io/inFairness/">inFairness</a> package.</p>
+<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. Here are some representative papers:</p>
+
+<ol>
+  <li><strong><a href="https://openreview.net/forum?id=qGeqg4_hA2">Post-processing for Individual Fairness</a></strong><br />
+F Petersen, D Mukherjee, Y Sun, M Yurochkin. <em>NeurIPS 2021</em>.</li>
+  <li><strong><a href="https://openreview.net/forum?id=DktZb97_Fx">SenSeI: Sensitive Set Invariance for Enforcing Individual Fairness</a></strong><br />
+M Yurochkin, Y Sun. <em>ICLR 2021</em>.</li>
+  <li><strong><a href="http://proceedings.mlr.press/v119/mukherjee20a.html">Two simple ways to learn individual fairness metrics from data</a></strong><br />
+D Mukherjee, M Yurochkin, M Banerjee, Y Sun. <em>ICML 2020</em>.</li>
+</ol>
 
 <figure style="max-width:540px">
   <iframe width="540" src="https://www.youtube.com/embed/pW5JiUrh6QE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="aspect-ratio: 16/9;"></iframe>
-  <figurecaption><p>A tutorial on our work on algorithmic fairness and the <a href="https://ibm.github.io/inFairness/">inFairness</a> package.</p></figurecaption>
+  <figurecaption><p>Here is a tutorial (by our collaborators at IBM Research)  on our algorithmic fairness research and the <a href="https://ibm.github.io/inFairness/">inFairness</a> package.</p></figurecaption>
 </figure>
 
 <h2 id="learning-under-distribution-shifts">Learning under distribution shifts</h2>
