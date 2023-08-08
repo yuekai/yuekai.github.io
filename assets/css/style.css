@@ -681,10 +681,6 @@ p {
   text-align: justify;
 }
 
-p.subp {
-  margin-bottom: 0;
-}
-
 a {
   color: #0969da;
   text-decoration: none;

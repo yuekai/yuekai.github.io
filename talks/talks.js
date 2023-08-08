@@ -1,5 +1,11 @@
 var talks = [
   [
+    "Stereotyping in constrastive learning",
+    "JSM 2023<br />Aug 7, 2023",
+    -79.3839347,
+    43.6534817
+  ],
+  [
     "AI fairness and robustness",
     "AAAI 2023<br />Feb 7, 2023",
     -77.0365427,
@@ -8,8 +14,8 @@ var talks = [
   [
     "Mitigating algorithmic biases caused by distribution shifts",
     "Tech for Justice seminar<br />Jan 25, 2023",
-    59.9823317,
-    57.9110833
+    -71.1040018,
+    42.3655767
   ],
   [
     "Mitigating algorithmic biases caused by distribution shifts",
@@ -86,8 +92,8 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "IISA 2019<br />Dec 28, 2019",
-    72.878176,
-    19.0785451
+    72.88662753964906,
+    19.08157715
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
@@ -98,8 +104,8 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "IBM Research - Cambridge<br />Oct 15, 2019",
-    -71.1056157,
-    42.3750997
+    -71.1040018,
+    42.3655767
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
@@ -110,14 +116,14 @@ var talks = [
   [
     "Statistical notions of fairness in machine learning",
     "UC Riverside statistics department seminar<br />Apr 2, 2019",
-    -117.3961623,
-    33.9533546
+    -117.3742389,
+    33.9824949
   ],
   [
     "Three vignettes in data science",
     "Fudan statistics department short course<br />Jun 2019",
-    121.4692071,
-    31.2322758
+    121.4691024,
+    31.2323437
   ],
   [
     "Geometric inference in admixture models",
@@ -158,8 +164,8 @@ var talks = [
   [
     "Interpreting the spectral embedding in spectral clustering",
     "10th ICSA international conference<br />Dec 22, 2016",
-    121.4692071,
-    31.2322758
+    121.4691024,
+    31.2323437
   ],
   [
     "Feature distributed sparse regression",
@@ -284,8 +290,8 @@ var talks = [
   [
     "Learning mixtures of linear classifiers",
     "ICML 2014<br />Jun 23, 2014",
-    116.3912757,
-    39.906217
+    116.3912972,
+    39.9057136
   ],
   [
     "Proximal Newton type methods for minimizing composite functions",
