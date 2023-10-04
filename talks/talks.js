@@ -44,8 +44,8 @@ var talks = [
   [
     "Model evaluation under distribution shift",
     "2022 ATD Annual Workshop<br />May 24, 2022",
-    -77.3063733,
-    38.8462236
+    -77.2836849,
+    38.8156356
   ],
   [
     "Statistical perspectives on federated learning",
@@ -68,8 +68,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "ICSA 2021<br />Sep 15, 2021",
-    59.9823317,
-    57.9110833
+    -50.36241737837912,
+    -27.8091756
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
@@ -92,8 +92,8 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "IISA 2019<br />Dec 28, 2019",
-    72.88662753964906,
-    19.08157715
+    72.878176,
+    19.0785451
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
@@ -116,14 +116,14 @@ var talks = [
   [
     "Statistical notions of fairness in machine learning",
     "UC Riverside statistics department seminar<br />Apr 2, 2019",
-    -117.3742389,
-    33.9824949
+    -116.0372472,
+    33.7219991
   ],
   [
     "Three vignettes in data science",
     "Fudan statistics department short course<br />Jun 2019",
-    121.4691024,
-    31.2323437
+    121.4700152,
+    31.2312707
   ],
   [
     "Geometric inference in admixture models",
@@ -134,8 +134,8 @@ var talks = [
   [
     "Fast convergence of proximal Newton-type methods in high dimensions",
     "EcoSta 2018<br />Jun 21, 2018",
-    114.1628131,
-    22.2793278
+    114.1849161,
+    22.350627
   ],
   [
     "Interpreting the spectral embedding in spectral clustering",
@@ -164,8 +164,8 @@ var talks = [
   [
     "Interpreting the spectral embedding in spectral clustering",
     "10th ICSA international conference<br />Dec 22, 2016",
-    121.4691024,
-    31.2323437
+    121.4700152,
+    31.2312707
   ],
   [
     "Feature distributed sparse regression",
@@ -290,8 +290,8 @@ var talks = [
   [
     "Learning mixtures of linear classifiers",
     "ICML 2014<br />Jun 23, 2014",
-    116.3912972,
-    39.9057136
+    116.412144,
+    40.190632
   ],
   [
     "Proximal Newton type methods for minimizing composite functions",
