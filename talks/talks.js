@@ -86,8 +86,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "2021 ICSA Applied Statistics Symposium<br> Sep 15, 2021",
-    14.3078001,
-    46.6247984
+    -9.278711124684799,
+    39.2171138
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
@@ -278,8 +278,8 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "Michigan statistics dept Seminar<br> Jan 16, 2015",
-    -83.7312291,
-    42.2681569
+    -83.7484616,
+    42.2813722
   ],
   [
     "Distributed estimation and inference for sparse regression",
