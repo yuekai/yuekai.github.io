@@ -658,7 +658,7 @@ figure {
 figurecaption p {
   font-size: 12px;
   line-height: 1.5;
-  margin: 6px 0 0;
+  margin: 0.25_1 8px 0 0;
   max-width: 100%;
 }
 
