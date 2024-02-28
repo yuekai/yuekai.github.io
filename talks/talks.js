@@ -20,8 +20,14 @@ var talks = [
   [
     "Mitigating algorithmic biases caused by distribution shifts",
     "UCSF Biostatistics and Bioinformatics Seminar (virtual)<br> Nov 2, 2023",
-    -122.419906,
-    37.7790262
+    -122.4193286,
+    37.7792588
+  ],
+  [
+    "Stereotyping in contrastive learning",
+    "JSM 2023<br> Aug 7, 2023",
+    -79.3839347,
+    43.6534817
   ],
   [
     "AI fairness and robustness",
@@ -128,8 +134,8 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "Cornell SCAN Seminar<br> Sep 9, 2019",
-    -76.4968019,
-    42.4396039
+    -76.54837235139263,
+    42.437417499999995
   ],
   [
     "Statistical notions of fairness in machine learning",
@@ -242,8 +248,8 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "Cornell Statistics Department Seminar<br> Feb 2015",
-    -76.4968019,
-    42.4396039
+    -76.54837235139263,
+    42.437417499999995
   ],
   [
     "Distributed estimation and inference for sparse regression",
