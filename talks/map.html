@@ -24,7 +24,14 @@
 					worldCopyJump: true
 				})
 				.setView([37.09, -95.71], 4)
-				.addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
+
+				const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+				if (prefersDarkScheme.matches) {
+					map.addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/dark-v11'));
+				} else {
+					map.addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v11'));
+				}
 				
 				for (var i1 = 0; i1 < talks.length; i1++) {
 					L.mapbox.featureLayer({
