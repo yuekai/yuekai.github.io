@@ -53,27 +53,27 @@
 
       <h1 id="research">Research</h1>
 
-<p>AI can match or even outperform humans in many tasks, but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades the AI’s performance but can also unduly harm protected demographic groups. For example,</p>
+<p>AI can match or even outperform humans in many tasks, but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades performance but can also lead to AI safety violations. For example,</p>
 
 <ol>
-  <li>gender classification AI tends to misclassify dark-skinned females because they are underrepresented in training data [<a href="http://gendershades.org/">Buolamwini &amp; Gebru</a>];</li>
-  <li>chest X-ray assessment AI performs worse when they are evaluated in hospitals that were not included in the training dataset [<a href="https://doi.org/10.1371/journal.pmed.1002683">Zech et al</a>];</li>
-  <li>polygenic risk scores are many times less accurate on non-European people because most subjects in genome-wide association studies are European [<a href="https://www.nature.com/articles/s41588-019-0379-x">Martin et al</a>].</li>
+  <li>polygenic risk scores are many times less accurate on non-European people because most subjects in genome-wide association studies are European [<a href="https://www.nature.com/articles/s41588-019-0379-x">Martin et al</a>];</li>
+  <li>word embeddings perpetuate gender stereotypes: “man is to computer programmer as woman is to homemaker” [<a href="https://dl.acm.org/doi/10.5555/3157382.3157584">Bolukbasi et al</a>];</li>
+  <li>malicious users can circumvent ChatGPT’s safety training with adversarial inputs (“jailbreak” attacks) [<a href="https://arxiv.org/abs/2307.02483">Wei et al</a>].</li>
 </ol>
 
-<p>My research leverages statistical science to improve the robustness of AI in the real world. Towards this goal, we work on:</p>
+<p>My research leverages statistical science to improve the safety of AI in the real world. Towards this goal, we work on:</p>
 
-<h2 id="ai-alignment-and-safety">AI alignment and safety</h2>
+<h2 id="ai-safety">AI safety</h2>
 
-<p>AI often encounter adversarial and out-of-distribution inputs in the real world. Although there are many methods for training adversarially and distributionally robust AI, most lack theoretical justification. This is a form of technical debt that hinders us from anticipating AI safety issues before they arise. We seek to repay this technical debt. Some recent papers are</p>
+<p>Experts predict that AI will exceed human capabilities in the near future [<a href="https://managing-ai-risks.com/">Bengio et al</a>]. While superintelligent AI can transform the world, they are equally dangerous in the hands of malicious actors. We develop new theories and methods to help us manage AI risks. Some representative papers are:</p>
 
 <ol>
-  <li><a href="http://arxiv.org/abs/2310.01583"><strong>An Investigation of Representation and Allocation Harms in Contrastive Learning</strong></a><br />
-S Maity, M Agarwal, M Yurochkin, Y Sun. <em>ICLR 2024</em>.</li>
+  <li><a href="https://arxiv.org/abs/2403.04224"><strong>Aligners: Decoupling LLMs and Alignment</strong></a><br />
+L Ngweta, M Agarwal, S Maity, A Gittens, Y Sun, M Yurochkin</li>
+  <li><a href="https://arxiv.org/abs/2402.14992"><strong>tinyBenchmarks: evaluating LLMs with few examples</strong></a><br />
+F Maia Polo, L Weber, L Choshen, Y Sun, G Xu, M Yurochkin.</li>
   <li><a href="https://openreview.net/forum?id=oWqWiazEb62"><strong>Calibrated Data-Dependent Constraints with Exact Satisfaction Guarantees</strong></a><br />
 S Xue, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
-  <li><a href="https://openreview.net/forum?id=6mUrD5rg-UU"><strong>Does enforcing fairness mitigate biases caused by subpopulation shift?</strong></a><br />
-S Maity, D Mukherjee, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
 </ol>
 
 <h2 id="algorithmic-fairness">Algorithmic fairness</h2>
@@ -86,10 +86,10 @@ S Maity, D Mukherjee, M Yurochkin, Y Sun. <em>NeurIPS 2021</em>.</li>
   <li>training individually fair AI.</li>
 </ol>
 
-<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. Here are some representative papers:</p>
+<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks and no practical algorithms to train individually fair AI. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. Here are some representative papers:</p>
 
 <ol>
-  <li><a href="https://openreview.net/forum?id=qGeqg4_hA2"><strong>Post-processing for Individual Fairness</strong></a><br />
+  <li><a href="https://openreview.ne`t/forum?id=qGeqg4_hA2"><strong>Post-processing for Individual Fairness</strong></a><br />
 F Petersen, D Mukherjee, Y Sun, M Yurochkin. <em>NeurIPS 2021</em>.</li>
   <li><a href="https://openreview.net/forum?id=DktZb97_Fx"><strong>SenSeI: Sensitive Set Invariance for Enforcing Individual Fairness</strong></a><br />
 M Yurochkin, Y Sun. <em>ICLR 2021</em>.</li>
@@ -104,15 +104,15 @@ D Mukherjee, M Yurochkin, M Banerjee, Y Sun. <em>ICML 2020</em>.</li>
 
 <h2 id="learning-under-distribution-shifts">Learning under distribution shifts</h2>
 
-<p>Many instances of algorithmic bias are caused by distribution shifts (see preceding examples). To develop <em>effective</em> algorithmic fairness practices, we must address the underlying distribution shifts. This led to an broader effort to develop <em>statistically-principled</em> methods for domain adaptation, out-of-domain extrapolation, and transfer learning. Some recent papers are:</p>
+<p>AI often encounter adversarial and out-of-distribution inputs in the real world, but the pernicious effects of distribution shifts are poorly understood. This is a form of technical debt that hinders us from anticipating AI risks before they arise. We seek to repay this technical debt. A key insight from our work is (contrary to popular belief) aligning AI so that they are fair/safe/transparent may not be at odds with performance. In fact, <em>alignment can improve (out-of-distribution) performance</em>. Some representative papers are:</p>
 
 <ol>
+  <li><a href="http://arxiv.org/abs/2310.01583"><strong>An Investigation of Representation and Allocation Harms in Contrastive Learning</strong></a><br />
+S Maity, M Agarwal, M Yurochkin, Y Sun. <em>ICLR 2024</em>.</li>
+  <li><a href="https://openreview.net/forum?id=XSNfXG9HBAu"><strong>Domain Adaptation meets Individual Fairness. And they get along.</strong></a><br />
+D Mukherjee, F Petersen, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
   <li><a href="https://openreview.net/forum?id=DBMttEEoLbw"><strong>Understanding new tasks through the lens of training data via exponential tilting</strong></a><br />
 S Maity, M Yurochkin, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
-  <li><a href="https://openreview.net/forum?id=2SV2dlfBuE3"><strong>Predictor-corrector algorithms for stochastic optimization under gradual distribution shift</strong></a><br />
-S Maity, D Mukherjee, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
-  <li><a href="https://jmlr.org/papers/v23/21-1519.html"><strong>Minimax optimal approaches to the label shift problem</strong></a><br />
-S Maity, Y Sun, M Banerjee. <em>JMLR</em> (2022).</li>
 </ol>
 
 
