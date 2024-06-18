@@ -53,7 +53,7 @@
 
       <h1 id="research">Research</h1>
 
-<p>AI can match or even outperform humans in many tasks, but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades performance but can also lead to AI safety violations. For example,</p>
+<p>AI can match or even outperform humans in many tasks, but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades (AI) reliablity but can also lead to safety violations. For example,</p>
 
 <ol>
   <li>polygenic risk scores are many times less accurate on non-European people because most subjects in genome-wide association studies are European [<a href="https://www.nature.com/articles/s41588-019-0379-x">Martin et al</a>];</li>
@@ -61,18 +61,18 @@
   <li>malicious users can circumvent ChatGPT’s safety training with adversarial inputs (“jailbreak” attacks) [<a href="https://arxiv.org/abs/2307.02483">Wei et al</a>].</li>
 </ol>
 
-<p>My research leverages statistical science to improve the safety of AI in the real world. Towards this goal, we work on:</p>
+<p>My research leverages statistical science to improve the reliability and safety of AI in the real world. Towards this goal, we work on:</p>
 
 <h2 id="ai-alignment-and-evaluation">AI alignment and evaluation</h2>
 
-<p>Experts predict that AI will exceed human capabilities in the near future [<a href="https://managing-ai-risks.com/">Bengio et al</a>]. While superintelligent AI can transform the world, they are equally dangerous in the hands of malicious actors. We develop new theories and methods for AI alignment and evaluation to help us anticipate and manage AI risks. Some representative papers are:</p>
+<p>Despite transformative advances in AI (experts predict that AI will exceed human capabilities in the near future [<a href="https://managing-ai-risks.com/">Bengio et al</a>]), AI remain prone to unexpected behavior, making them unreliable and potentially dangerous in the hands of malicious actors. We develop new theories and methods for AI alignment and evaluation to help us anticipate and manage AI risks. Some representative papers are:</p>
 
 <ol>
   <li><a href="https://arxiv.org/abs/2405.16236"><strong>A statistical framework for weak-to-strong generalization</strong></a><br />
 S Somerstep, F Maia Polo, M Banerjee, Y Ritov, M Yurochkin, Y Sun.</li>
   <li><a href="https://arxiv.org/abs/2403.04224"><strong>Aligners: Decoupling LLMs and Alignment</strong></a><br />
 L Ngweta, M Agarwal, S Maity, A Gittens, Y Sun, M Yurochkin.<br />
-A short version appear as an <em>ICLR 2024 TinyPaper</em>.</li>
+A short version appeared as an <em>ICLR 2024 TinyPaper</em>.</li>
   <li><a href="https://arxiv.org/abs/2402.14992"><strong>tinyBenchmarks: evaluating LLMs with few examples</strong></a><br />
 F Maia Polo, L Weber, L Choshen, Y Sun, G Xu, M Yurochkin. to appear in <em>ICML 2024</em>.</li>
 </ol>
@@ -87,7 +87,7 @@ F Maia Polo, L Weber, L Choshen, Y Sun, G Xu, M Yurochkin. to appear in <em>ICML
   <li>training individually fair AI.</li>
 </ol>
 
-<p>Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks and no practical algorithms to train individually fair AI. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. Here are some representative papers:</p>
+<p>The algorithms are implemented in the <a href="https://github.com/Trusted-AI/AIF360">AI Fairness 360 (AIF360)</a> and <a href="https://github.com/IBM/inFairness">inFairness</a> packages. Before our work, IF was dismissed as impractical because there were no practical ways of picking similarity metrics for many AI tasks and no practical algorithms to train individually fair AI. The (similarity) metric learning algorithms in the suite address this issue by helping practitioners <em>align</em> similarity metrics with user feedback. Here are some representative papers:</p>
 
 <ol>
   <li><a href="https://openreview.net/forum?id=qGeqg4_hA2"><strong>Post-processing for Individual Fairness</strong></a><br />
@@ -109,7 +109,7 @@ D Mukherjee, M Yurochkin, M Banerjee, Y Sun. <em>ICML 2020</em>.</li>
 
 <ol>
   <li><a href="https://dl.acm.org/doi/10.1145/3630106.3658929"><strong>Algorithmic Fairness in Performative Policy Learning: Escaping the  Impossibility of Group Fairness</strong></a><br />
-S Somerstep, Y Ritov, Y Sun. to appear in <em>FAccT 2024</em>.</li>
+S Somerstep, Y Ritov, Y Sun. <em>FAccT 2024</em>.</li>
   <li><a href="https://openreview.net/forum?id=q4SiDyYQbo"><strong>An Investigation of Representation and Allocation Harms in Contrastive Learning</strong></a><br />
 S Maity, M Agarwal, M Yurochkin, Y Sun. <em>ICLR 2024</em>.</li>
   <li><a href="https://openreview.net/forum?id=XSNfXG9HBAu"><strong>Domain Adaptation meets Individual Fairness. And they get along.</strong></a><br />
