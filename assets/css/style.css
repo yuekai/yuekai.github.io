@@ -699,6 +699,11 @@ iframe, img {
   height: auto;
 }
 
+img.badge {
+  display: inline;
+  height: 16px;
+}
+
 p {
   margin: 0 0 24px;
   text-align: justify;
