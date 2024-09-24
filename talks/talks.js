@@ -1,5 +1,23 @@
 var talks = [
   [
+    "Escaping the impossibility of (group) fairness in performative prediction",
+    "Ohio State Translational Data Analytics Institute 2024 Fall Forum<br> Nov 8, 2024",
+    -83.0007065,
+    39.9622601
+  ],
+  [
+    "A transfer learning framework for weak-to-strong generalization",
+    "2024 NSF ATD + AMPS PI meeting<br> Oct 7, 2024",
+    -77.0365427,
+    38.8950368
+  ],
+  [
+    "Algorithmic fairness in performative prediction",
+    "2024 ICSA Applied Statistics Symposium<br> Jun 8, 2024",
+    -86.7742984,
+    36.1622767
+  ],
+  [
     "Stereotyping in contrastive learning",
     "SSCI 2023 Workshop on Trustworthy AI through Model Risk Management<br> Dec 5, 2023",
     -99.1331785,
@@ -39,19 +57,19 @@ var talks = [
     "Mitigating algorithmic biases caused by distribution shifts",
     "Tech for Justice Seminar (virtual)<br> Jan 25, 2023",
     -71.1040018,
-    42.3655767
+    42.3656347
   ],
   [
     "Mitigating algorithmic biases caused by distribution shifts",
     "ICSDS 2022<br> Dec 13, 2022",
-    11.2555757,
-    43.7698712
+    11.2556404,
+    43.7697955
   ],
   [
     "Domain Adaptation Meets Individual Fairness. And they get along.",
     "2022 ICSA China Conference<br> Jul 2, 2022",
-    108.9423443,
-    34.2607713
+    108.9423363,
+    34.261004
   ],
   [
     "Model evaluation under distribution shift",
@@ -92,8 +110,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "2021 ICSA Applied Statistics Symposium<br> Sep 15, 2021",
-    -9.278711124684799,
-    39.2171138
+    -46.5723318,
+    -22.0709421
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
@@ -129,7 +147,7 @@ var talks = [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "IBM Research - Cambridge<br> Oct 15, 2019",
     -71.1040018,
-    42.3655767
+    42.3656347
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
@@ -152,19 +170,19 @@ var talks = [
   [
     "Geometric inference in admixture models",
     "CMStatistics 2018<br> Dec 15, 2018",
-    10.4018624,
-    43.7159395
+    10.679791173704576,
+    43.4714722
   ],
   [
     "Fast convergence of proximal Newton-type methods in high dimensions",
     "EcoSta 2018<br> Jun 21, 2018",
-    114.1849161,
-    22.350627
+    114.1628131,
+    22.2793278
   ],
   [
     "Interpreting the spectral embedding in spectral clustering",
     "ISNPS 2018<br> Jun 2018",
-    15.310756230322482,
+    15.310608468834516,
     40.419441649999996
   ],
   [
@@ -224,8 +242,8 @@ var talks = [
   [
     "Communication efficient sparse regression: a one shot approach",
     "Stanford LA/OPT Seminar<br> Apr 2015",
-    -122.1702445,
-    37.427467
+    -122.17030545534064,
+    37.426540700000004
   ],
   [
     "Distributed estimation and inference for sparse regression",
@@ -314,8 +332,8 @@ var talks = [
   [
     "Learning mixtures of linear classifiers",
     "ICML 2014<br> Jun 23, 2014",
-    116.3912972,
-    39.9057136
+    116.412144,
+    40.190632
   ],
   [
     "Proximal Newton type methods for minimizing composite functions",
