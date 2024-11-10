@@ -1,12 +1,18 @@
 var talks = [
   [
+    "Transfer learning for weak-to-strong generalization",
+    "Simons Institute Workshop on Domain Adaptation and Related Areas<br> Nov 13, 2024",
+    -122.272863,
+    37.8708393
+  ],
+  [
     "Escaping the impossibility of (group) fairness in performative prediction",
     "Ohio State Translational Data Analytics Institute 2024 Fall Forum<br> Nov 8, 2024",
     -83.0007065,
     39.9622601
   ],
   [
-    "A transfer learning framework for weak-to-strong generalization",
+    "Transfer learning for weak-to-strong generalization",
     "2024 NSF ATD + AMPS PI meeting<br> Oct 7, 2024",
     -77.0365427,
     38.8950368
@@ -110,8 +116,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "2021 ICSA Applied Statistics Symposium<br> Sep 15, 2021",
-    -46.5723318,
-    -22.0709421
+    21.1591495,
+    40.5034749
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
@@ -134,8 +140,8 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "IISA 2019<br> Dec 28, 2019",
-    72.82810491917377,
-    18.9733536
+    72.8692035,
+    19.054999
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
@@ -158,8 +164,8 @@ var talks = [
   [
     "Statistical notions of fairness in machine learning",
     "UC Riverside Statistics Department Seminar<br> Apr 2, 2019",
-    -116.0372472,
-    33.7219991
+    -117.374238,
+    33.9824949
   ],
   [
     "Three vignettes in data science",
@@ -242,8 +248,8 @@ var talks = [
   [
     "Communication efficient sparse regression: a one shot approach",
     "Stanford LA/OPT Seminar<br> Apr 2015",
-    -122.17030545534064,
-    37.426540700000004
+    -122.1702445,
+    37.427467
   ],
   [
     "Distributed estimation and inference for sparse regression",
@@ -290,8 +296,8 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "Michigan State CMSE colloquium<br> Jan 2015",
-    -84.5553805,
-    42.7337712
+    -84.5546295,
+    42.7338254
   ],
   [
     "Distributed estimation and inference for sparse regression",
