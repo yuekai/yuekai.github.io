@@ -92,8 +92,8 @@ var talks = [
   [
     "Model evaluation under distribution shift",
     "2022 ATD Annual Workshop<br> May 24, 2022",
-    -77.2836849,
-    38.8156356
+    -77.3063733,
+    38.8462236
   ],
   [
     "Statistical perspectives on federated learning",
@@ -116,8 +116,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "2021 ICSA Applied Statistics Symposium<br> Sep 15, 2021",
-    21.1591495,
-    40.5034749
+    11.3576917,
+    44.4939936
   ],
   [
     "There is no trade off: enforcing fairness can improve accuracy",
@@ -182,8 +182,8 @@ var talks = [
   [
     "Fast convergence of proximal Newton-type methods in high dimensions",
     "EcoSta 2018<br> Jun 21, 2018",
-    114.1628131,
-    22.2793278
+    114.1849161,
+    22.350627
   ],
   [
     "Interpreting the spectral embedding in spectral clustering",
@@ -248,8 +248,8 @@ var talks = [
   [
     "Communication efficient sparse regression: a one shot approach",
     "Stanford LA/OPT Seminar<br> Apr 2015",
-    -122.1702445,
-    37.427467
+    -122.17030545534064,
+    37.426540700000004
   ],
   [
     "Distributed estimation and inference for sparse regression",
