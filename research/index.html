@@ -63,7 +63,7 @@
 
 <p>My research leverages statistical science to improve the reliability and safety of AI in the real world. Towards this goal, we work on:</p>
 
-<h2 id="ai-evaluation--safety">AI evaluation &amp; safety</h2>
+<h2 id="ai-alignment--evaluation">AI alignment &amp; evaluation</h2>
 
 <p>Despite transformative advances in AI (experts predict that AI will exceed human capabilities in the near future [<a href="https://managing-ai-risks.com/">Bengio et al</a>]), AI remain prone to unexpected behavior, making them unreliable and potentially dangerous in the hands of malicious actors. We develop new theories and methods for AI alignment and evaluation to help us anticipate and manage AI risks. Some representative papers are:</p>
 
@@ -82,26 +82,7 @@ F Maia Polo, L Weber, L Choshen, Y Sun, G Xu, M Yurochkin. <em>ICML 2024</em>.</
 
 <h2 id="algorithmic-fairness">Algorithmic fairness</h2>
 
-<p>We developed a suite of algorithms to help practitioners implement <strong>individual fairness (IF)</strong>, an intuitive notion of algorithmic fairness that requires algorithms to “treat similar inputs similarly”. The suite includes algorithms for aligning similarity metrics with user feedback, auditing algorithms for violations of IF, and training individually fair AI. Before our work, IF was dismissed as impractical because there were no similarity metrics for many AI tasks and no practical algorithms to train individually fair AI. The (similarity) metric learning algorithms in the suite address the first issue, and the training algorithms address the latter issue. The algorithms are implemented in IBM’s <a href="https://github.com/Trusted-AI/AIF360">AIF360 toolkit</a>. Here are some representative papers:</p>
-
-<ol>
-  <li><a href="https://openreview.net/forum?id=qGeqg4_hA2"><strong>Post-processing for Individual Fairness</strong></a><br />
-F Petersen, D Mukherjee, Y Sun, M Yurochkin. <em>NeurIPS 2021</em>.</li>
-  <li><a href="https://openreview.net/forum?id=DktZb97_Fx"><strong>SenSeI: Sensitive Set Invariance for Enforcing Individual Fairness</strong></a><br />
-M Yurochkin, Y Sun. <em>ICLR 2021</em>.</li>
-  <li><a href="http://proceedings.mlr.press/v119/mukherjee20a.html"><strong>Two simple ways to learn individual fairness metrics from data</strong></a><br />
-D Mukherjee, M Yurochkin, M Banerjee, Y Sun. <em>ICML 2020</em>.</li>
-</ol>
-
-<figure style="max-width:540px">
-  <iframe width="540" src="https://www.youtube.com/embed/pW5JiUrh6QE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="aspect-ratio: 16/9;"></iframe>
-</figure>
-
-<p>More recently, we have adopted a statistical approach to algorithmic fairness: algorithmic biases are often caused by distribution shifts (eg due to sampling biases in the training data), which suggests they are statistical problems that admit statistical solutions. Sometimes, we can even exploit the distribution shifts to achieve otherwise unachievable fairness objectives (eg achieve equality of outcomes with (policies that satisfy) equality of opportunity/treatment). This motivates a large part of our work on distribution shifts.</p>
-
-<h2 id="learning-under-distribution-shifts">Learning under distribution shifts</h2>
-
-<p>AI often encounter adversarial and out-of-distribution inputs in the real world, but the pernicious effects of distribution shifts are poorly understood. This is a form of technical debt that hinders us from anticipating AI risks before they arise. We seek to repay this technical debt. A key insight from our work is (contrary to popular belief) aligning AI so that they are fair/safe/transparent may not be at odds with performance. In fact, <em>alignment can improve (out-of-distribution) performance</em>. Some representative papers are:</p>
+<p>We take a statistical approach to algorithmic fairness: algorithmic biases are often caused by distribution shifts (eg due to sampling biases in the training data), which suggests they are statistical problems that admit statistical solutions. A key insight from our work is (contrary to popular belief) aligning AI so that they are fair/safe/transparent may not be at odds with accuracy. In fact, <em>alignment can improve (out-of-distribution) performance</em>. Sometimes, we can even exploit the distribution shifts to achieve otherwise unachievable fairness objectives (eg achieve equality of outcomes with (policies that satisfy) equality of opportunity/treatment). This motivates some of our work on distribution shifts. Here are some representative papers:</p>
 
 <ol>
   <li><a href="https://dl.acm.org/doi/10.1145/3630106.3658929"><strong>Algorithmic Fairness in Performative Policy Learning: Escaping the  Impossibility of Group Fairness</strong></a><br />
@@ -110,6 +91,21 @@ S Somerstep, Y Ritov, Y Sun. <em>FAccT 2024</em>.</li>
 S Maity, M Agarwal, M Yurochkin, Y Sun. <em>ICLR 2024</em>.</li>
   <li><a href="https://openreview.net/forum?id=XSNfXG9HBAu"><strong>Domain Adaptation meets Individual Fairness. And they get along.</strong></a><br />
 D Mukherjee, F Petersen, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
+</ol>
+
+<p>We also developed a suite of algorithms to help practitioners implement <strong>individual fairness (IF)</strong>, an intuitive notion of algorithmic fairness that requires algorithms to “treat similar inputs similarly”. The suite includes algorithms for aligning similarity metrics with user feedback, auditing algorithms for violations of IF, and training individually fair AI. Before our work, IF was dismissed as impractical because there were no similarity metrics for many AI tasks and no practical algorithms to train individually fair AI. We addressed both issues with the (similarity) metric learning and training algorithms in the suite. Try the algorithms in IBM’s <a href="https://github.com/Trusted-AI/AIF360">AIF360 toolkit</a>!</p>
+
+<h2 id="transfer-learning">Transfer learning</h2>
+
+<p>AI often encounter adversarial and out-of-distribution inputs in the real world, but the pernicious effects of distribution shifts are poorly understood. This is a form of technical debt that hinders us from anticipating AI risks before they arise. We seek to repay this technical debt. Some representative papers are:</p>
+
+<ol>
+  <li><a href="https://openreview.net/forum?id=2SV2dlfBuE3"><strong>Predictor-corrector algorithms for stochastic optimization under gradual distribution shift</strong></a><br />
+S Maity, D Mukherjee, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
+  <li><a href="https://openreview.net/forum?id=DBMttEEoLbw"><strong>Understanding new tasks through the lens of training data via exponential tilting</strong></a><br />
+S Maity, M Yurochkin, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
+  <li><a href="https://jmlr.org/papers/v23/21-1519.html"><strong>Minimax optimal approaches to the label shift problem</strong></a><br />
+S Maity, Y Sun, M Banerjee. <em>Journal of Machine Learning Research</em> (2022).</li>
 </ol>
 
 
