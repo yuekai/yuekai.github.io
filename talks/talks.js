@@ -1,6 +1,12 @@
 var talks = [
   [
     "Transfer learning for weak-to-strong generalization",
+    "University of Calgary Mathematics and Statistics Colloquium<br> Feb 14, 2025",
+    -114.057541,
+    51.0456064
+  ],
+  [
+    "Transfer learning for weak-to-strong generalization",
     "Simons Institute Workshop on Domain Adaptation and Related Areas<br> Nov 13, 2024",
     -122.272863,
     37.8708393
@@ -26,8 +32,8 @@ var talks = [
   [
     "Stereotyping in contrastive learning",
     "SSCI 2023 Workshop on Trustworthy AI through Model Risk Management<br> Dec 5, 2023",
-    -99.1331785,
-    19.4326296
+    -99.1514677512441,
+    19.3207722
   ],
   [
     "Mitigating algorithmic biases caused by distribution shifts",
@@ -86,8 +92,8 @@ var talks = [
   [
     "Does enforcing fairness mitigate algorithmic biases due to distribution shift?",
     "EcoSta 2022 (virtual)<br> Jun 4, 2022",
-    135.7556075,
-    35.021041
+    135.7681441,
+    35.0115754
   ],
   [
     "Model evaluation under distribution shift",
