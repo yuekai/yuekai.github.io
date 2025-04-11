@@ -677,10 +677,9 @@ figure {
   max-width: 100%;
 }
 
-figurecaption p {
+figcaption {
   font-size: 12px;
   line-height: 1.5;
-  margin: 0.25_1 8px 0 0;
   max-width: 100%;
 }
 
