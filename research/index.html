@@ -54,7 +54,7 @@
 
       <h1 id="research">Research</h1>
 
-<p>AI can match or even outperform humans in many tasks, but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades (AI) reliablity but can also lead to safety violations. For example,</p>
+<p>AI can match or even outperform humans in many tasks, but they are also prone to mistakes on unfamiliar inputs. Unfortunately, AI often encounter unfamiliar inputs when deployed in the real world because training data is seldom diverse enough to reflect the diversity of real-world inputs. This not only degrades (AI) reliability but can also lead to safety violations. For example,</p>
 
 <ol>
   <li>polygenic risk scores are many times less accurate on non-European people because most subjects in genome-wide association studies are European [<a href="https://www.nature.com/articles/s41588-019-0379-x">Martin et al</a>];</li>
@@ -64,22 +64,18 @@
 
 <p>My research leverages statistical science to improve the reliability and safety of AI in the real world. Towards this goal, we work on:</p>
 
-<h2 id="ai-alignment--evaluation">AI alignment &amp; evaluation</h2>
+<h2 id="ai-evaluation">AI evaluation</h2>
 
-<p>Despite transformative advances in AI (experts predict that AI will exceed human capabilities in the near future [<a href="https://managing-ai-risks.com/">Bengio et al</a>]), AI remain prone to unexpected behavior, making them unreliable and potentially dangerous in the hands of malicious actors. We develop new theories and methods for AI alignment and evaluation to help us anticipate and manage AI risks. Some representative papers are:</p>
+<p>Despite transformative advances in AI (experts predict that AI will exceed human capabilities in the near future [<a href="https://managing-ai-risks.com/">Bengio et al</a>]), we evaluate AI in the same ways as we evaluate simpler predictive models (eg test set accuracy). Such simple evaluation practices cannot assess rich AI outputs <em>holistically</em>, leading to blind spots that ultimately hamper AI safety and reliability. To fill this gap between AI evaluation needs and practice, we develop new statistical theory and methods for holistic AI evaluation. Some representative papers are:</p>
 
 <ol>
-  <li><a href="https://arxiv.org/abs/2405.17202"><strong>Efficient multi-prompt evaluation of LLMs</strong></a><br />
+  <li><a href="https://arxiv.org/abs/2412.06540"><strong>Sloth: scaling laws for LLM skills to predict multi-benchmark performance across families</strong></a><br />
+F Maia Polo, S Somerstep, L Choshen, Y Sun, M Yurochkin.</li>
+  <li><a href="https://openreview.net/forum?id=8wzYdXWYJv"><strong>Efficient multi-prompt evaluation of LLMs</strong></a><br />
 F Maia Polo, R Xu, L Weber, M Silva, O Bhardwaj, L Choshen, A Oliveira, Y Sun, M Yurochkin. <em>NeurIPS 2024</em>.</li>
-  <li><a href="https://arxiv.org/abs/2405.16236"><strong>A transfer learning framework for weak-to-strong generalization</strong></a><br />
-S Somerstep, F Maia Polo, M Banerjee, Y Ritov, M Yurochkin, Y Sun.</li>
-  <li><a href="https://arxiv.org/abs/2402.14992"><strong>tinyBenchmarks: evaluating LLMs with few examples</strong></a><br />
+  <li><a href="https://openreview.net/forum?id=qAml3FpfhG"><strong>tinyBenchmarks: evaluating LLMs with few examples</strong></a><br />
 F Maia Polo, L Weber, L Choshen, Y Sun, G Xu, M Yurochkin. <em>ICML 2024</em>.</li>
 </ol>
-
-<figure style="max-width:540px">
-  <iframe width="540" src="https://www.youtube.com/embed/q68VtFoWmFI?si=_Ct_VCYD6GcrMzb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="aspect-ratio: 16/9;"></iframe>
-</figure>
 
 <h2 id="algorithmic-fairness">Algorithmic fairness</h2>
 
@@ -101,13 +97,17 @@ D Mukherjee, F Petersen, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
 <p>AI often encounter adversarial and out-of-distribution inputs in the real world, but the pernicious effects of distribution shifts are poorly understood. This is a form of technical debt that hinders us from anticipating AI risks before they arise. We seek to repay this technical debt. Some representative papers are:</p>
 
 <ol>
-  <li><a href="https://openreview.net/forum?id=2SV2dlfBuE3"><strong>Predictor-corrector algorithms for stochastic optimization under gradual distribution shift</strong></a><br />
-S Maity, D Mukherjee, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
+  <li><a href="https://arxiv.org/abs/2405.15172"><strong>Learning the Distribution Map in Reverse Causal Performative Prediction</strong></a><br />
+D Bracale, S Maity, S Somerstep, M Banerjee, Y Sun. to appear in <em>AISTATS 2025</em>.</li>
+  <li><a href="https://openreview.net/forum?id=PeLLMw3wLX"><strong>A transfer learning framework for weak-to-strong generalization</strong></a><br />
+S Somerstep, F Maia Polo, M Banerjee, Y Ritov, M Yurochkin, Y Sun. <em>ICLR 2025</em>.</li>
   <li><a href="https://openreview.net/forum?id=DBMttEEoLbw"><strong>Understanding new tasks through the lens of training data via exponential tilting</strong></a><br />
 S Maity, M Yurochkin, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
-  <li><a href="https://jmlr.org/papers/v23/21-1519.html"><strong>Minimax optimal approaches to the label shift problem</strong></a><br />
-S Maity, Y Sun, M Banerjee. <em>Journal of Machine Learning Research</em> (2022).</li>
 </ol>
+
+<figure style="max-width:540px">
+  <iframe width="540" src="https://www.youtube.com/embed/q68VtFoWmFI?si=_Ct_VCYD6GcrMzb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="aspect-ratio: 16/9;"></iframe>
+</figure>
 
 
       </section>
