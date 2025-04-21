@@ -1,6 +1,12 @@
 var talks = [
   [
-    "Transfer learning for weak-to-strong generalization",
+    "Transfer learning for weak-to-strong generalization in LLMs",
+    "Florida State University Statistics Colloquium<br> Apr 11, 2025",
+    -84.2809332,
+    30.4380832
+  ],
+  [
+    "Transfer learning for weak-to-strong generalization in LLMs",
     "University of Calgary Mathematics and Statistics Colloquium<br> Feb 14, 2025",
     -114.057541,
     51.0456064
@@ -32,7 +38,7 @@ var talks = [
   [
     "Stereotyping in contrastive learning",
     "SSCI 2023 Workshop on Trustworthy AI through Model Risk Management<br> Dec 5, 2023",
-    -99.1514677512441,
+    -99.1514678,
     19.3207722
   ],
   [
@@ -68,8 +74,8 @@ var talks = [
   [
     "Mitigating algorithmic biases caused by distribution shifts",
     "Tech for Justice Seminar (virtual)<br> Jan 25, 2023",
-    -71.1040018,
-    42.3656347
+    -71.131738,
+    42.3786343
   ],
   [
     "Mitigating algorithmic biases caused by distribution shifts",
@@ -158,14 +164,14 @@ var talks = [
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "IBM Research - Cambridge<br> Oct 15, 2019",
-    -71.1040018,
-    42.3656347
+    -71.131738,
+    42.3786343
   ],
   [
     "Training individually fair ML systems with Sensitive Subspace Robustness",
     "Cornell SCAN Seminar<br> Sep 9, 2019",
-    -76.54837235139263,
-    42.437417499999995
+    -76.5483724,
+    42.4374175
   ],
   [
     "Statistical notions of fairness in machine learning",
@@ -182,7 +188,7 @@ var talks = [
   [
     "Geometric inference in admixture models",
     "CMStatistics 2018<br> Dec 15, 2018",
-    10.679791173704576,
+    10.6797912,
     43.4714722
   ],
   [
@@ -194,8 +200,8 @@ var talks = [
   [
     "Interpreting the spectral embedding in spectral clustering",
     "ISNPS 2018<br> Jun 2018",
-    15.310608468834516,
-    40.419441649999996
+    15.3106085,
+    40.4194416
   ],
   [
     "Interpreting the spectral embedding in spectral clustering",
@@ -254,8 +260,8 @@ var talks = [
   [
     "Communication efficient sparse regression: a one shot approach",
     "Stanford LA/OPT Seminar<br> Apr 2015",
-    -122.17030545534064,
-    37.426540700000004
+    -122.1702445,
+    37.427467
   ],
   [
     "Distributed estimation and inference for sparse regression",
@@ -278,8 +284,8 @@ var talks = [
   [
     "Distributed estimation and inference for sparse regression",
     "Cornell Statistics Department Seminar<br> Feb 2015",
-    -76.54837235139263,
-    42.437417499999995
+    -76.5483724,
+    42.4374175
   ],
   [
     "Distributed estimation and inference for sparse regression",
