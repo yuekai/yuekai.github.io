@@ -773,7 +773,7 @@ dd {
 
 dd::after { /* clears proceeding dt(s) ensuring that the next dd will be after next dt */
   content: "";
-  clear: left;
+  clear: both;
   display: table;
 }
 
