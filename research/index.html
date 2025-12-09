@@ -56,7 +56,7 @@
 
 <h2 id="ai-evaluation">AI evaluation</h2>
 
-<p>Despite transformative advances in generative AI, we evaluate GenAI in the same ways as we evaluate simpler predictive models (eg accuracy on held-out examples). Such simple evaluation practices cannot assess rich GenAI outputs <em>holistically</em>, leading to blind spots that ultimately hamper AI safety and reliability. To fill this gap between AI evaluation demands and practice, we develop new statistical theory and methods for AI evaluation. Some representative papers are:</p>
+<p>Despite transformative advances in generative AI, we evaluate GenAI in the same ways as we evaluate simpler predictive models (ie accuracy on held-out examples). Such simple evaluation practices cannot assess rich GenAI outputs <em>holistically</em>, leading to blind spots that ultimately hamper AI safety and reliability. To fill this gap between AI evaluation demands and practice, we develop new statistical theory and methods for AI evaluation. Some representative papers are:</p>
 
 <ol>
   <li><a href="https://openreview.net/forum?id=Zb0ajZ7vAt"><strong>Large Language Model Routing with Benchmark Datasets</strong></a><br />
@@ -80,6 +80,15 @@ D Mukherjee, F Petersen, M Yurochkin, Y Sun. <em>NeurIPS 2022</em>.</li>
 M Yurochkin, Y Sun. <em>ICLR 2021</em>.</li>
 </ol>
 
+<h2 id="training-llms">Training LLMs</h2>
+
+<p>Open-weight models such as DeepSeek V3/R1 hide the two most critical factors affecting model behavior: the training algorithm and data. This hinders assessment of the models’ capabilities and defects (eg trace capabilities/defects to the training data) and stifles innovation at the pre-training and mid-training stages (eg swap in domain-specific data to achieve deeper domain adaptation than fine-tuning). To address this, we train the <em>fully/totally open</em> (open weights, training algorithm, and data) K2-series of LLMs. The latest model in the series, <a href="https://huggingface.co/LLM360/K2-V2">K2-V2</a>, is state-of-the-art among fully open LLMs (outperfoming Olmo 3-Think 32B) and LLMs with 70B-ish parameters (outperforming LLaMA 3.1 and Qwen 2.5).</p>
+
+<div style="display: flex; justify-content: space-around; align-items: center; margin: 0 0 24px;">
+  <img src="/assets/img/gpaq-diamond.png" alt="GPAQ Diamond result 1" style="max-width: 48%; height: auto;" />
+  <img src="/assets/img/sft_model.png" alt="SFT Model result 2" style="max-width: 48%; height: auto;" />
+</div>
+
 <h2 id="transfer-learning">Transfer learning</h2>
 
 <p>AI often encounter adversarial and out-of-distribution inputs in the real world, but the pernicious effects of distribution shifts are poorly understood. This is a form of technical debt that hinders us from anticipating AI risks before they arise. We seek to repay this technical debt. Some representative papers are:</p>
@@ -92,10 +101,6 @@ S Maity, M Agarwal, M Yurochkin, Y Sun. <em>ICLR 2024</em>.</li>
   <li><a href="https://openreview.net/forum?id=DBMttEEoLbw"><strong>Understanding new tasks through the lens of training data via exponential tilting</strong></a><br />
 S Maity, M Yurochkin, M Banerjee, Y Sun. <em>ICLR 2023</em>.</li>
 </ol>
-
-<figure style="max-width:540px">
-  <iframe width="540" src="https://www.youtube.com/embed/q68VtFoWmFI?si=_Ct_VCYD6GcrMzb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="aspect-ratio: 16/9;"></iframe>
-</figure>
 
 
       </section>
