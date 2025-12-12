@@ -56,7 +56,7 @@
 
 <h2 id="ai-evaluation">AI evaluation</h2>
 
-<p>Despite transformative advances in generative AI, we evaluate GenAI in the same ways as we evaluate simpler predictive models (ie accuracy on held-out examples). Such simple evaluation practices cannot assess rich GenAI outputs <em>holistically</em>, leading to blind spots that ultimately hamper AI safety and reliability. To fill this gap between AI evaluation demands and practice, we develop new statistical theory and methods for AI evaluation. Some representative papers are:</p>
+<p>Despite transformative advances in generative AI, we evaluate GenAI in the same ways as we evaluate simpler predictive models (ie accuracy on held-out examples). Such simple evaluation protocols cannot assess the rich outputs <em>holistically</em>, leading to blind spots that ultimately hamper AI safety and reliability. To fill this gap between AI evaluation needs and practice, we develop new statistical theory and methods for AI evaluation. Some representative papers are:</p>
 
 <ol>
   <li><a href="https://openreview.net/forum?id=Zb0ajZ7vAt"><strong>Large Language Model Routing with Benchmark Datasets</strong></a><br />
@@ -69,7 +69,7 @@ H Wang, F Maia Polo, Y Sun, S Kundu, E Xing, M Yurochkin. <em>ICLR 2024</em>.</l
 
 <h2 id="algorithmic-fairness">Algorithmic fairness</h2>
 
-<p>We take a statistical approach to algorithmic fairness: algorithmic biases are often caused by distribution shifts (eg due to sampling biases in the training data), which suggests they are statistical problems that admit statistical solutions. A key insight from our work is (contrary to popular belief) aligning AI so that they are fair/safe/transparent may not be at odds with accuracy. In fact, <em>alignment can improve (out-of-distribution) performance</em>. Sometimes, we can even exploit the distribution shifts to achieve otherwise unachievable fairness objectives (eg achieve equality of outcomes with (policies that satisfy) equality of opportunity/treatment). This motivates some of our work on distribution shifts. Here are some representative papers:</p>
+<p>We take a statistical approach to algorithmic fairness: algorithmic biases are often caused by distribution shifts (eg due to sampling biases in the training data), which suggests they are statistical problems that admit statistical solutions. A key insight from our work is (contrary to popular belief) aligning AI so that they are fair/safe/transparent may not be at odds with accuracy. In fact, <em>alignment can improve (out-of-distribution) performance</em>. We can even exploit the distribution shifts to achieve otherwise unachievable fairness objectives (eg achieve equality of outcomes with (policies that satisfy) equality of opportunity/treatment). This statistical approach to fairness also motivates some of our more fundamental work on transfer learning. Here are some representative papers:</p>
 
 <ol>
   <li><a href="https://dl.acm.org/doi/10.1145/3630106.3658929"><strong>Algorithmic Fairness in Performative Policy Learning: Escaping the  Impossibility of Group Fairness</strong></a><br />
@@ -82,7 +82,7 @@ M Yurochkin, Y Sun. <em>ICLR 2021</em>.</li>
 
 <h2 id="training-llms">Training LLMs</h2>
 
-<p>Open-weight models such as DeepSeek V3/R1 hide the two most critical factors affecting model behavior: the training algorithm and data. This hinders assessment of the models’ capabilities and defects (eg trace capabilities/defects to the training data) and stifles innovation at the pre-training and mid-training stages (eg swap in domain-specific data to achieve deeper domain adaptation than fine-tuning). To address this, we train the <em>fully/totally open</em> (open weights, training algorithm, and data) K2-series of LLMs. The latest model in the series, <a href="https://huggingface.co/LLM360/K2-V2">K2-V2</a>, is state-of-the-art among fully open LLMs (outperfoming Olmo 3-Think 32B) and LLMs with 70B-ish parameters (outperforming LLaMA 3.1 and Qwen 2.5).</p>
+<p>Open-weight models such as DeepSeek V3/R1 hide the two most critical factors affecting model behavior: the training algorithm and data. This hinders assessment of the models’ capabilities and defects (eg trace capabilities/defects to documents in the training data) and stifles innovation at the pre-training and mid-training stages. To address the lack of <em>fully open</em> (open weights, training algorithm, and training data) LLMs, we train the K2-series of models. The latest in the series, <a href="https://huggingface.co/LLM360/K2-V2">K2-V2</a>, is state-of-the-art among fully open LLMs (outperfoming Olmo 3-Think 32B) and LLMs in its size-class (outperforming LLaMA 3.3-70B and Qwen2.5-72B).</p>
 
 <div style="display: flex; justify-content: space-around; align-items: center; margin: 0 0 24px;">
   <img src="/assets/img/gpaq-diamond.png" alt="GPAQ Diamond result 1" style="max-width: 48%; height: auto;" />
